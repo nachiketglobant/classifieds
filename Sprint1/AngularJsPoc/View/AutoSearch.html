@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html ng-app="plunker">
+<head>
+    <meta charset="utf-8" />
+    <title>Auto Search City </title>
+    <script>document.write('<base href="' + document.location + '" />');</script>
+    <link data-require="bootstrap-css" data-semver="3.3.1" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" />
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+    <script data-require="angular.js@1.2.x" src="https://code.angularjs.org/1.2.28/angular.js" data-semver="1.2.28"></script>
+
+    <!-- Google Maps JavaScript API -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyCikabP-Js3_IJejnnhv47LImksvm3qxI0"></script>
+
+    <!-- vsGoogleAutocomplete -->
+    <script src="../app/app.js"></script>
+    <script src="../app/Gruntfile.js"></script>
+    <script src="../app/vs-google-autocomplete.js"></script>
+</head>
+
+
+<!-- 
+  * Dependency: Google Maps JavaScript API v3
+  * Google Maps API info: https://developers.google.com/maps/documentation/javascript/places-autocomplete
+  * Usage: 
+  *   1. add <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyCikabP-Js3_IJejnnhv47LImksvm3qxI0"></script>
+  *   2. add vs-google-autocomplete.js
+  *   3. add vs-google-autocomplete directive to input field
+  -->
+<body ng-controller="MainCtrl">
+    <div class="container">
+
+        <h3>Example of Auto Complete City with address </h3>
+        <form>
+
+            <!-- vs-google-autocomplete -->
+            <div class="form-group">
+                <label for="place">Place</label>
+                <input vs-google-autocomplete
+                    ng-model="place"
+                    type="text"
+                    name="place"
+                    id="place"
+                    class="form-control"
+                    placeholder="Enter any address">
+                <span class="help-block"><b>Model: </b>{{place}}</span>
+            </div>
+
+            <!-- vs-google-autocomplete="{ types:['(cities)'] }" -->
+            <div class="form-group">
+                <label for="city">City</label>
+                <input vs-google-autocomplete="{ types:['(cities)'] }"
+                    ng-model="city"
+                    type="text"
+                    name="city"
+                    id="city"
+                    class="form-control"
+                    placeholder="Enter city name">
+                <span class="help-block"><b>Model: </b>{{city}}</span>
+            </div>
+
+            <!-- parsing address components -->
+            <div class="form-group">
+                <label for="address">Address</label>
+                <span>(parsing address components example)</span>
+                <input vs-google-autocomplete
+                    ng-model="address.name"
+                    vs-place="address.place"
+                    vs-place-id="address.components.placeId"
+                    vs-street-number="address.components.streetNumber"
+                    vs-street="address.components.street"
+                    vs-city="address.components.city"
+                    vs-state="address.components.state"
+                    vs-country-short="address.components.countryCode"
+                    vs-country="address.components.country"
+                    vs-post-code="address.components.postCode"
+                    vs-district="address.components.district"
+                    vs-latitude="address.components.location.lat"
+                    vs-longitude="address.components.location.long"
+                    type="text"
+                    name="address"
+                    id="address"
+                    class="form-control"
+                    placeholder="Enter address">
+                <span class="help-block"><b>Model: </b>{{address.name}}</span>
+                <span class="help-block"><b>Place id: </b>{{address.components.placeId}}</span>
+                <span class="help-block"><b>Street number: </b>{{address.components.streetNumber}}</span>
+                <span class="help-block"><b>Street: </b>{{address.components.street}}</span>
+                <span class="help-block"><b>City: </b>{{address.components.city}}</span>
+                <span class="help-block"><b>State: </b>{{address.components.state}}</span>
+                <span class="help-block"><b>Country code: </b>{{address.components.countryCode}}</span>
+                <span class="help-block"><b>Country: </b>{{address.components.country}}</span>
+                <span class="help-block"><b>Postcode: </b>{{address.components.postCode}}</span>
+                <span class="help-block"><b>District: </b>{{address.components.district}}</span>
+                <span class="help-block"><b>Latitude: </b>{{address.components.location.lat}}</span>
+                <span class="help-block"><b>Longitude: </b>{{address.components.location.long}}</span>
+                <pre class="help-block"><b>Place: </b>{{address.place | json}}</pre>
+            </div>
+
+        </form>
+
+    </div>
+</body>
+
+</html>

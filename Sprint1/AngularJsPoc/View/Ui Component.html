@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html ng-app="plunker">
+
+<head>
+    <meta charset="utf-8" />
+    <title>AngularJS Plunker</title>
+    <link data-require="bootstrap-css@*" data-semver="3.3.6" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" />
+    <script>
+        document.write('<base href="' + document.location + '" />');
+    </script>
+    <link rel="stylesheet" href="style.css" />
+    <script data-require="angular.js@1.4.x" src="https://code.angularjs.org/1.5.0/angular.js" data-semver="1.4.9"></script>
+    <script src="app.js"></script>
+</head>
+
+<body ng-controller="RootController as root" class="container">
+  
+    <pre>Root view: root.view = {{ root.view }}</pre>
+  
+    <header-component view="root.view" on-view-change="root.view = $event.view"></header-component>
+    <main-component view="root.view"></main-component>
+  
+    <!-- http://stackoverflow.com/questions/36033940/how-to-pass-data-between-child-component-in-angular-1-5-not-using-scope#36033940 -->    
+    
+</body>
+
+</html>
