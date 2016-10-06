@@ -13,35 +13,58 @@
             <h2>Large Forms</h2>
             <h3>here is an example of how you can use the grid to build  out a complex form layout</h3>
         </div>
-        <div class="form-container" style="float:left;">
-            <span style="margin-top:-10px;margin-left:10px;float:left; background-color:white;">Large Form Example</span> 
-            <div style="float:left;margin-left:-5%;margin-top:50px; width:500px; ">
+        <div class="form-container">
+            <span class="title">Large Form Example</span>
+            <div class="leftdiv">
                 <span>Name</span>
-                <input type="text" class="txtFull" />
+                <input type="text" />
                 <span>Occupation</span>
-                <input type="text" class="txtFull" />
+                <input type="text" />
                 <span>Twitter</span>
-                <input type="text" class="txtFull" />
+                <input type="text" />
                 <span>URL</span>
-                <input type="text" class="txtFull" />
+                <input type="text" />
             </div>
-            <div style="float:right;margin-right:10%;margin-top:50px;">
-                <span>Name</span>
-                <input type="text" class="txtFull" />
+            <div class="rightdiv">
+                <p>
+                    <span>
+                        <span>
+                            Field with error
+                        </span>
+                        <input type="text" class="txtError" />
+                        <span style="width:250px;height:40px;float:left;background-color:red;color:white;margin-top:-10px;vertical-align:middle;">
+                            Invalid entry
+                        </span>
+                    </span>
+                </p>
+                <p>
+                    <span>
+                        <span>
+                            Field with error
+                        </span>
+                        <input type="text" class="txtError" />
+                        <span style="width:250px;height:40px;float:left;background-color:red;color:white;margin-top:-10px;vertical-align:middle;">
+                            Invalid entry
+                        </span>
+                    </span>
+                </p>
             </div>
             <div style="float:left;margin-left:6%;width:80%;margin-right:10%;">
                 <span>Address</span>
-                <input type="text" class="txtFull" placeholder="street" />
+                <input type="text" placeholder="street" />
                 <div style="float:left;width:650px;">
-                    <input class="txtFull" type="text" placeholder="City" />
+                    <input type="text" placeholder="City" />
                 </div>
-                <div style="float:right">
-                    <select>
-                        <option>CA</option>
-                    </select>
-                    <input type="text" class="txt" placeholder="Zip" />
+                <div style="width:300px;float:right">
+                    <div style="width:150px;float:left">
+                        <select>
+                            <option>CA</option>
+                        </select>
+                    </div>
+                    <div style="width:150px;float:right">
+                        <input type="text" class="txt" placeholder="Zip" />
+                    </div>
                 </div>
-
             </div>
         </div>
     </main>

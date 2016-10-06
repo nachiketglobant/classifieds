@@ -1,6 +1,7 @@
 ﻿body {
 }
-.txtFull {
+
+input[type=text], select {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -10,19 +11,51 @@
     box-sizing: border-box;
 }
 
-.txt {
-    width: 200px;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+h3 {
+    color: #ccc;
 }
 
-
-h3{
-    color:#ccc;
+.form-container {
+    margin-top: 25px;
+    border: 2px solid #b1b1b1;
+    border-radius: 5px;
+    float: left;
 }
 
-.form-container {margin-top: 25px;border: 2px solid #b1b1b1;border-radius: 5px;}
+    .form-container .title {
+        margin-top: -10px;
+        margin-left: 10px;
+        float: left;
+        background-color: white;
+    }
+
+    .form-container .leftdiv {
+        float: left;
+        margin-left: -5%;
+        margin-top: 50px;
+        width: 500px;
+    }
+
+    .form-container .rightdiv {
+        float: right;
+        margin-right: 10%;
+        margin-top: 50px;
+        width: 300px;
+    }
+
+        .form-container .rightdiv p span {
+            float: right;
+            width: 250px;
+        }
+
+            .form-container .rightdiv p span span {
+                background-color: white;
+                color: red;
+            }
+
+            .form-container .rightdiv p span .txtError {
+                background-color: pink;
+                border-color: red;
+            }
+
+            
