@@ -1,0 +1,28 @@
+﻿body {
+}
+.txtFull {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.txt {
+    width: 200px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+
+h3{
+    color:#ccc;
+}
+
+.form-container {margin-top: 25px;border: 2px solid #b1b1b1;border-radius: 5px;}
