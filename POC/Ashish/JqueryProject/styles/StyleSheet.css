@@ -1,0 +1,67 @@
+﻿body {
+    background-color:floralwhite;
+}
+strong{
+    color:red;
+}
+.Menu{
+     margin-left: 450px;
+     margin-top: 50px;
+}
+.Links{
+    font-size:large;
+    color:red;
+}
+.Cust{
+    width: 700px;
+    background-color:lightgray;
+    margin-left: 300px;
+    margin-top: 75px;
+}
+.Headers{
+    background-color: gray;
+    font-weight: 500;
+    width: 100px;
+}
+h1{
+    margin-left: 440px;
+    color: blue;
+}
+.ParentDiv{
+    display: inline-block;
+    margin-left: 200px;
+}
+.InnerDiv{
+    width: 500px;
+    /**/
+    font-size: large;
+    color: brown;
+    float: left;
+    padding: 10px;
+}
+#leftDiv{
+    padding: 20px;
+}
+.elementLabel{
+    font-weight:bold;
+    //border:groove;
+    margin-bottom: 10px;
+    text-align:left;
+}
+.element{
+    font-weight:bold;
+    border:groove;
+    margin-bottom: 10px;
+}
+.inputElement{
+    margin-top: 25px;
+    margin-bottom: 10px;
+    background-color:burlywood;
+    width: 100%;
+}
+.button{
+    width:  100px;
+    height: 40px;
+    background-color:ButtonShadow;
+    margin-left: 350px;
+}

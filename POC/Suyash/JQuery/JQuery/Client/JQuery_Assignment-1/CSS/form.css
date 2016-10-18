@@ -1,0 +1,131 @@
+﻿body {
+    font-family: verdana; /*"Helvetica Neue",Helvetica,Arial,sans-serif;*/
+    font-size: 12px;
+    line-height: 1.42;
+    
+    margin: 40px;
+    width: 820px;
+}
+
+.wrapper {   
+    color: #444;
+    width: 780px;        
+    padding:10px;
+    margin:10px auto;
+    background: #FFF;  
+}
+
+.borderradius{ border-radius: 5px; }
+
+.floatl {
+    float:left;
+}
+
+.floatr {
+    float:right;
+}
+
+.leftdiv{
+     float:left;
+     width:500px;
+}
+.width350{width:350px;}
+.width250{width:250px;}
+.lable {font-weight:bold;}
+
+.form-group{
+    margin-bottom: 15px;
+}
+
+.form-control {
+    display: block;
+    width: 90%;
+    height: 25px;
+    padding: 1px 8px;
+    font-size: 14px;
+    line-height: 1.2;
+    color: #555;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+ 
+input, button, select, textarea {
+    font-family: Verdana;
+    font-size: 12px !important;
+    line-height: inherit;
+}
+
+label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+/*.errordiv {
+    float: left;
+    width: 350px;   
+    margin-bottom: 15px;
+}*/
+
+.rightdiv{
+     float:left;
+     width:350px;
+      margin-left: 80px;
+}
+.error1 {   
+    border-width: 1px;    
+    color: #b91a1a;
+}
+.error-control {
+    display: block;
+    width: 90%;
+    height: 25px;
+    padding: 1px 8px;
+    font-size: 9px;
+    line-height: 1.2;
+    color: #555;
+    background-color: #f8d5ef;
+    border: 1px solid #b91a1a;
+    border-radius: 2px;
+}
+.error-msg {
+    background-color: #b91a1a;
+    border: 2px solid #b91a1a;
+    border-radius: 0px;
+    color:#fff;
+    width:94%;
+    height:25px;
+}
+.width760{width:450px;}
+.width800{width:800px;}
+
+.dropdown {
+    box-sizing: border-box;
+    border: 1px solid #C2C2C2;
+    box-shadow: 1px 1px 4px #EBEBEB;
+    border-radius: 3px;
+    padding: 4px;
+    outline: none;
+    width:110px;
+}
+
+.city{
+    width:51%;
+    float:left;
+}
+
+.zip{
+    width:28%;
+    padding-left:25px;
+    float:left;
+}
+table,th,td
+{
+border:1px solid black;
+}
+th:hover{
+     cursor:pointer;
+    background:#AAA;
+    
+}

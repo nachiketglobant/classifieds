@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Customer Details</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
+    <script src="scripts/jquery.validate.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script src="scripts/Add_Edit/Common.js"></script>
+    <script src="scripts/Add_Edit/AddNewCustomer.js"></script>
+    <script src="scripts/Add_Edit/EditCustomer.js"></script>
+
+    <meta charset="utf-8" />
+</head>
+<body>
+    <form id="NewCustomer" class="form-horizontal">
+        <a href="Home.html">Home</a>
+        <div id="cTable" class="container">
+           
+            <div id="MainForm" class="form-group">
+               
+                <div class="form-group">
+                    <div class="col-sm-offset-1 col-sm-10">
+                        <label for="inputcName" class="col-sm-2 control-label">Customer Details</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputcName" class="col-sm-2 control-label">Customer Name</label>
+                    <div class="col-sm-5">
+                        <input type="text" value="" placeholder="Customer Name" id="cName" class="form-control" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputcEmail" class="col-sm-2 control-label">Customer Email</label>
+                    <div class="col-sm-5">
+                        <input type="email" value="" placeholder="Customer Email" id="cEmail" class="form-control" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputcDob" class="col-sm-2 control-label">Customer DOB</label>
+                    <div class="col-sm-5">
+                        <input type="text" value="" placeholder="Customer DOB" id="cDob" class="input_text" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputType" class="col-sm-2 control-label">Customer Type</label>
+                    <div class="col-sm-5">
+                        <select id="Type" class="input_text" required>
+                            <option value="">Type</option>
+                            <option value="Type1">Type1</option>
+                            <option value="Type2">Type2</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputGender" class="col-sm-2 control-label">Gender</label>
+                    <div class="col-sm-5">
+                        <input type="radio" name="Gender" value="M" required>Male<br>
+                        <input type="radio" name="Gender" value="F" required>Female
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputhobbies" class="col-sm-2 control-label">hobbies</label>
+                    <div class="col-sm-5">
+                        <label class="checkbox-inline">
+                            <input type="checkbox" id="Sports" value="Sports" name="hobbies" required> Sports
+                        </label>
+                        <label class="checkbox-inline">
+                            <input type="checkbox" id="Treking" value="Treking" name="hobbies"> Treking
+                        </label>
+                        <label class="checkbox-inline">
+                            <input type="checkbox" id="Biking" value="Biking" name="hobbies"> Biking
+                        </label>
+                        <label class="checkbox-inline">
+                            <input type="checkbox" id="Music" value="Music" name="hobbies"> Music
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <input type="submit" value="Save" id="btnSave" class="btn btn-primary" />
+                        <input type="submit" value="Edit" id="btnEdit" class="btn btn-primary" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</form>
+</body>
+</html>
