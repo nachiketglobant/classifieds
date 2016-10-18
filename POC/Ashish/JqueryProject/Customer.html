@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title></title>
+    <script src="scripts/jquery-3.1.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
+    <link href="styles/StyleSheet.css" rel="stylesheet" />
+    <script src="scripts/customer.js"></script>
+    <script src="scripts/customerServices.js"></script>
+</head>
+<body>
+    <h1>Add or edit Customer Detail</h1>
+    <div></div>
+    <div class="ParentDiv">
+        <div class="InnerDiv" id="leftDiv">
+                <div class="elementLabel">Customer Name</div>
+                <div class="elementLabel">Date of Birth</div>
+                <div class="elementLabel">Customer Type</div>
+                <div class="elementLabel">Gender</div>
+                <div class="elementLabel">Hobbies</div>
+        </div>
+        <div class="InnerDiv">
+                <div class="inputElement"><input type="text" id="txtName" placeholder="Enter Name" required /> </div>
+                <div class ="element"  id="liDate"><input type="date" id="dtDOB" /></div>
+                <div class="element" id="liType">
+                    <select id="drpType">
+                        <option value="">Select</option>
+                        <option value="Registered">Registered</option>
+                        <option value="UnRegistered">Unregistered</option>
+                    </select>
+                </div>
+                <div class="element" id="liGender">
+                    <input id="rdMale" type="radio" name="gender" value="Male" />Male
+                    <input id="rdFemale" type="radio" name="gender" value="Female" />Female
+                </div>
+                <div class="element" id="liHobbies">
+                    <input type="checkbox" name="hobbies" id="chkPainting" value="Painting"/>Painting
+                    <input type="checkbox" name="hobbies" id="chkTravelling" value="Travelling"  />Travelling
+                    <input type="checkbox" name="hobbies" id="chkSports" value="Sports" />Sports
+                    <input type="checkbox" name="hobbies" id="chkReading" value="Reading" />Reading
+                </div>
+        </div>
+        <div>
+            <input id="btnSubmit" type="submit" class="button" name="Save" value="Save" /> 
+            <span id="postMessage"></span>
+        </div>
+    </div>
+</body>
+</html>
