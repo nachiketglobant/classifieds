@@ -11,9 +11,9 @@ namespace Classifieds.ListingsAPI.Controllers
     {
         private IListingService _listingService;
 
-        public ListingsController()
+        public ListingsController(IListingService listingService)
         {
-            _listingService = new ListingService();
+            _listingService = listingService;
         }
 
         public string Get()

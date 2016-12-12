@@ -54,3 +54,12 @@ E:\git\Classified\classifieds\classifieds\Application\Server\ClassifiedAPI\Class
 E:\git\Classified\classifieds\classifieds\Application\Server\ClassifiedAPI\Classifieds.ListingsAPI\obj\Debug\Classifieds.ListingsAPI.csprojResolveAssemblyReference.cache
 E:\git\Classified\classifieds\classifieds\Application\Server\ClassifiedAPI\Classifieds.ListingsAPI\obj\Debug\Classifieds.ListingsAPI.dll
 E:\git\Classified\classifieds\classifieds\Application\Server\ClassifiedAPI\Classifieds.ListingsAPI\obj\Debug\Classifieds.ListingsAPI.pdb
+E:\git\Classified\classifieds\classifieds\Application\Server\ClassifiedAPI\Classifieds.ListingsAPI\bin\Microsoft.Practices.ServiceLocation.dll
+E:\git\Classified\classifieds\classifieds\Application\Server\ClassifiedAPI\Classifieds.ListingsAPI\bin\Microsoft.Practices.Unity.Configuration.dll
+E:\git\Classified\classifieds\classifieds\Application\Server\ClassifiedAPI\Classifieds.ListingsAPI\bin\Microsoft.Practices.Unity.dll
+E:\git\Classified\classifieds\classifieds\Application\Server\ClassifiedAPI\Classifieds.ListingsAPI\bin\Microsoft.Practices.Unity.RegistrationByConvention.dll
+E:\git\Classified\classifieds\classifieds\Application\Server\ClassifiedAPI\Classifieds.ListingsAPI\bin\Microsoft.Practices.ServiceLocation.pdb
+E:\git\Classified\classifieds\classifieds\Application\Server\ClassifiedAPI\Classifieds.ListingsAPI\bin\Microsoft.Practices.ServiceLocation.xml
+E:\git\Classified\classifieds\classifieds\Application\Server\ClassifiedAPI\Classifieds.ListingsAPI\bin\Microsoft.Practices.Unity.xml
+E:\git\Classified\classifieds\classifieds\Application\Server\ClassifiedAPI\Classifieds.ListingsAPI\bin\Microsoft.Practices.Unity.Configuration.xml
+E:\git\Classified\classifieds\classifieds\Application\Server\ClassifiedAPI\Classifieds.ListingsAPI\bin\Microsoft.Practices.Unity.RegistrationByConvention.xml

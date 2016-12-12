@@ -12,9 +12,10 @@ namespace Classifieds.Listings.BusinessServices
     {
         private IListingRepository _listingRepository;
 
-        public ListingService()
+        public ListingService(IListingRepository ListingRepository)
         {
-            _listingRepository = new ListingRepository();
+            //_listingRepository = new ListingRepository();
+            _listingRepository = ListingRepository;
         }
 
         public List<Listing> GetListingById(string id)

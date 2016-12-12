@@ -42,3 +42,8 @@ E:\git\Classified\classifieds\classifieds\Application\Server\ClassifiedAPI\Class
 E:\git\Classified\classifieds\classifieds\Application\Server\ClassifiedAPI\Classifieds.ListingsAPI.Tests\obj\Debug\Classifieds.ListingsAPI.Tests.csprojResolveAssemblyReference.cache
 E:\git\Classified\classifieds\classifieds\Application\Server\ClassifiedAPI\Classifieds.ListingsAPI.Tests\obj\Debug\Classifieds.ListingsAPI.Tests.dll
 E:\git\Classified\classifieds\classifieds\Application\Server\ClassifiedAPI\Classifieds.ListingsAPI.Tests\obj\Debug\Classifieds.ListingsAPI.Tests.pdb
+E:\git\Classified\classifieds\classifieds\Application\Server\ClassifiedAPI\Classifieds.ListingsAPI.Tests\bin\Debug\Microsoft.Practices.Unity.dll
+E:\git\Classified\classifieds\classifieds\Application\Server\ClassifiedAPI\Classifieds.ListingsAPI.Tests\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+E:\git\Classified\classifieds\classifieds\Application\Server\ClassifiedAPI\Classifieds.ListingsAPI.Tests\bin\Debug\Microsoft.Practices.Unity.xml
+E:\git\Classified\classifieds\classifieds\Application\Server\ClassifiedAPI\Classifieds.ListingsAPI.Tests\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
+E:\git\Classified\classifieds\classifieds\Application\Server\ClassifiedAPI\Classifieds.ListingsAPI.Tests\bin\Debug\Microsoft.Practices.ServiceLocation.xml
