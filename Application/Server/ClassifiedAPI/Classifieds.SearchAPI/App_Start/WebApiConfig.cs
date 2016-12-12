@@ -16,7 +16,7 @@ namespace Classifieds.SearchAPI
 
             config.Routes.MapHttpRoute(
                 name: "Default",
-                routeTemplate: "api/{controller}/{action}/{id}",
+                routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
         }
