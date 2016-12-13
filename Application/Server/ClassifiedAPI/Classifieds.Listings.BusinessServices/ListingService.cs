@@ -29,5 +29,22 @@ namespace Classifieds.Listings.BusinessServices
                 throw ex;
             }
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="category"></param>
+        /// <returns></returns>
+        public List<Listing> GetListingsByCategory(string category)
+        {
+            try
+            {
+                return _listingRepository.GetListingsByCategory(category);
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
     }
 }

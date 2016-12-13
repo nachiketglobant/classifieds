@@ -1,5 +1,6 @@
 ﻿using Classifieds.Listings.BusinessEntities;
 using MongoDB.Driver;
+using MongoDB.Driver.Builders;
 using MongoDB.Driver.Linq;
 using System;
 using System.Collections.Generic;
@@ -11,8 +12,8 @@ namespace Classifieds.Listings.Repository
     {
 
         private const string CONNECTION_STRING = "mongodb://localhost";
-        private const string DATABASE = "Classifieds";
-        private const string COLLECTION_Classifieds = "Listing";
+        private const string DATABASE = "classifiedDB";//"Classifieds";
+        private const string COLLECTION_Classifieds = "Listings";
 
         private MongoClient client = null;
         private MongoServer server = null;
@@ -41,6 +42,26 @@ namespace Classifieds.Listings.Repository
             catch (Exception ex)
             {
                 throw ex;
+            }
+        }
+
+        /// <summary>
+        /// Returns a collection of listings based on category
+        /// </summary>
+        /// <param name="category">listing category</param>
+        /// <returns>Collection of listings</returns>
+        public List<Listing> GetListingsByCategory(string category)
+        {
+            try
+            {
+                List<Listing> result = this.classifieds.FindAll()
+                                            .Where(p => p.ListingCategory == category)
+                                            .ToList();
+                return result;
+            }
+            catch (MongoException ex)
+            {
+                return null;
             }
         }
     }

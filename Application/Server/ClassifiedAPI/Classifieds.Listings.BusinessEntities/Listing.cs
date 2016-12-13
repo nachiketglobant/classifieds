@@ -22,12 +22,16 @@ namespace Classifieds.Listings.BusinessEntities
         public string SubCategory { get; set; }
         public string Title { get; set; }
         public string Details { get; set; }
+        public string Address { get; set; }
+        public string ContactNo { get; set; }
+        public string ContactName { get; set; }
+        public string Configuration { get; set; }
         public string Brand { get; set; }
         public Int32 Price { get; set; }
         public Int32 YearOfPurchase { get; set; }
         public string ExpiryDate { get; set; }
         public string Status { get; set; }
-        public string Submittedby { get; set; }
+        public string SubmittedBy { get; set; }
         public string SubmittedDate { get; set; }
         public string IdealFor { get; set; }
         public string Furnished { get; set; }

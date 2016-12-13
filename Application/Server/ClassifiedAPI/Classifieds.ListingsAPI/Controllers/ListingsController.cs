@@ -35,5 +35,23 @@ namespace Classifieds.ListingsAPI.Controllers
 
         }
 
+        /// <summary>
+        /// Returns the listings for given category
+        /// </summary>
+        /// <param name="category">listing category</param>
+        /// <returns></returns>
+        public List<Listing> GetListingsByCategory(string category)
+        {
+            try
+            {
+                return _listingService.GetListingsByCategory(category);
+            }
+            catch (Exception ex)
+            {
+                //log exception
+                throw ex;
+            }
+        }
+
     }
 }
