@@ -10,10 +10,9 @@ namespace Classifieds.Listings.Repository
 {
     public class ListingRepository : IListingRepository
     {
-
         private const string CONNECTION_STRING = "mongodb://localhost";
-        private const string DATABASE = "classifiedDB";//"Classifieds";
-        private const string COLLECTION_Classifieds = "Listings";
+        private const string DATABASE = "Classifieds";
+        private const string COLLECTION_Classifieds = "Listing";
 
         private MongoClient client = null;
         private MongoServer server = null;

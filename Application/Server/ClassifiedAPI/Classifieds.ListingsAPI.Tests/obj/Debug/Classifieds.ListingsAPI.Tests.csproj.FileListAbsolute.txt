@@ -96,3 +96,7 @@ D:\Projects\Classifieds\classifieds\Application\Server\ClassifiedAPI\Classifieds
 D:\Projects\Classifieds\classifieds\Application\Server\ClassifiedAPI\Classifieds.ListingsAPI.Tests\obj\Debug\Classifieds.ListingsAPI.Tests.csprojResolveAssemblyReference.cache
 D:\Projects\Classifieds\classifieds\Application\Server\ClassifiedAPI\Classifieds.ListingsAPI.Tests\obj\Debug\Classifieds.ListingsAPI.Tests.dll
 D:\Projects\Classifieds\classifieds\Application\Server\ClassifiedAPI\Classifieds.ListingsAPI.Tests\obj\Debug\Classifieds.ListingsAPI.Tests.pdb
+E:\git\Classified\classifieds\classifieds\Application\Server\ClassifiedAPI\Classifieds.ListingsAPI.Tests\bin\Debug\Castle.Core.dll
+E:\git\Classified\classifieds\classifieds\Application\Server\ClassifiedAPI\Classifieds.ListingsAPI.Tests\bin\Debug\Moq.dll
+E:\git\Classified\classifieds\classifieds\Application\Server\ClassifiedAPI\Classifieds.ListingsAPI.Tests\bin\Debug\Castle.Core.xml
+E:\git\Classified\classifieds\classifieds\Application\Server\ClassifiedAPI\Classifieds.ListingsAPI.Tests\bin\Debug\Moq.xml
