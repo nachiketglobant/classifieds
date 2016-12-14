@@ -46,5 +46,42 @@ namespace Classifieds.Listings.BusinessServices
                 return null;
             }
         }
+
+
+        public Listing CreateListing(Listing listObject)
+        {
+            try
+            {
+                return _listingRepository.Add(listObject);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public Listing UpdateListing(string id, Listing listObject)
+        {
+            try
+            {
+                return _listingRepository.Update(id, listObject);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void DeleteListing(string id)
+        {
+            try
+            {
+                _listingRepository.Delete(id);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

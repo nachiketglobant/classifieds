@@ -3,6 +3,8 @@ using Classifieds.Listings.BusinessServices;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Web.Http;
 
 namespace Classifieds.ListingsAPI.Controllers
@@ -53,5 +55,90 @@ namespace Classifieds.ListingsAPI.Controllers
             }
         }
 
+        public HttpResponseMessage Post(Listing listingObj)
+        {
+            HttpResponseMessage result = null;
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var Classified = _listingService.CreateListing(listingObj);
+                    result = Request.CreateResponse<Listing>(HttpStatusCode.Created, Classified);
+                    string newItemURL = Url.Link("Listing", new { id = Classified._id });
+                    result.Headers.Location = new Uri(newItemURL);
+                }
+                catch (Exception ex)
+                {
+                    //log exception //Trace.TraceError(ex.Message, ex);
+                    result = Request.CreateResponse<string>(HttpStatusCode.InternalServerError, ex.Message);
+                }
+            }
+            else
+            {
+                result = GetBadRequestResponse();
+            }
+
+            return result;
+        }
+
+        public HttpResponseMessage Put(string id, Listing value)
+        {
+            HttpResponseMessage result = null;
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _listingService.UpdateListing(id, value);
+                    result = Request.CreateResponse(HttpStatusCode.NoContent);
+                }
+                catch (Exception ex)
+                {
+                    //Trace.TraceError(ex.Message, ex);
+                    result = Request.CreateResponse<string>(HttpStatusCode.InternalServerError, ex.Message);
+                }
+            }
+            else
+            {
+                result = GetBadRequestResponse();
+            }
+
+            return result;
+        }
+
+        public HttpResponseMessage Delete(string id)
+        {
+            HttpResponseMessage result = null;
+
+            try
+            {
+                _listingService.DeleteListing(id);
+                result = Request.CreateResponse(HttpStatusCode.NoContent);
+            }
+            catch (Exception ex)
+            {
+                //Trace.TraceError(ex.Message, ex);
+                result = Request.CreateResponse<string>(HttpStatusCode.InternalServerError, ex.Message);
+            }
+
+            return result;
+        }
+
+        private HttpResponseMessage GetBadRequestResponse()
+        {
+            HttpResponseMessage response = null;
+            List<string> errors = new List<string>();
+            foreach (var modelSt in ModelState.Values)
+            {
+                foreach (var error in modelSt.Errors)
+                {
+                    errors.Add(error.ErrorMessage);
+                }
+            }
+
+            response = Request.CreateResponse<IEnumerable<string>>(HttpStatusCode.BadRequest, errors);
+            return response;
+        }
     }
 }

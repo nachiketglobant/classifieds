@@ -47,4 +47,3 @@ D:\Projects\Classifieds\classifieds\Application\Server\ClassifiedAPI\Classifieds
 D:\Projects\Classifieds\classifieds\Application\Server\ClassifiedAPI\Classifieds.Search.BusinessEntities\obj\Debug\Classifieds.Search.BusinessEntities.csprojResolveAssemblyReference.cache
 D:\Projects\Classifieds\classifieds\Application\Server\ClassifiedAPI\Classifieds.Search.BusinessEntities\obj\Debug\Classifieds.Search.BusinessEntities.dll
 D:\Projects\Classifieds\classifieds\Application\Server\ClassifiedAPI\Classifieds.Search.BusinessEntities\obj\Debug\Classifieds.Search.BusinessEntities.pdb
-E:\git\Classified\classifieds\classifieds\Application\Server\ClassifiedAPI\Classifieds.Search.BusinessEntities\obj\Debug\Classifieds.Search.BusinessEntities.csprojResolveAssemblyReference.cache
