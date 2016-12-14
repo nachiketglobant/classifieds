@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Classifieds.Search.BusinessEntities;
+﻿#region Imports
+    using System.Collections.Generic;
+    using Classifieds.Search.BusinessEntities;
+#endregion  
 
 namespace Classifieds.Search.BusinessServices
 {
