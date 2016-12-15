@@ -46,7 +46,7 @@ namespace Classifieds.ListingsAPI.Controllers
         {
             try
             {
-                return _listingService.GetListingsByCategory(category);
+                return _listingService.GetListingsByCategory(category).ToList();
             }
             catch (Exception ex)
             {

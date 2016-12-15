@@ -31,10 +31,10 @@ namespace Classifieds.Listings.BusinessServices
         }
 
         /// <summary>
-        /// 
+        /// service method returns collection of listing
         /// </summary>
-        /// <param name="category"></param>
-        /// <returns></returns>
+        /// <param name="category">listing category</param>
+        /// <returns>collection(listing)</returns>
         public List<Listing> GetListingsByCategory(string category)
         {
             try
