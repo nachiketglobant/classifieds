@@ -13,6 +13,7 @@ namespace Classifieds.Listings.BusinessServices.Test
         #region Class Variables
         private Mock<IListingRepository> _moqAppManager;
         private IListingService _service;
+        private List<Listing> classifiedList = new List<Listing>();
         #endregion
 
         #region Initialize
@@ -27,18 +28,8 @@ namespace Classifieds.Listings.BusinessServices.Test
         #region Setup
         private void SetUpClassifiedsListing()
         {
-            var lstListing = GetListObject();
-
-            var classifiedList = new List<Listing>();
-            classifiedList.Add(lstListing);
-            _moqAppManager.Setup(x => x.GetListingById(It.IsAny<string>())).Returns(classifiedList);
-        }
-
-        private Listing GetListObject()
-        {
-            Listing listObject = new Listing
+            var lstListing = new Listing()
             {
-                _id = "9",
                 ListingType = "test",
                 ListingCategory = "test",
                 SubCategory = "test",
@@ -64,10 +55,12 @@ namespace Classifieds.Listings.BusinessServices.Test
                 TypeofUse = "test",
                 Photos = "test"
             };
-            return listObject;
 
-
+            
+            classifiedList.Add(lstListing);
+            _moqAppManager.Setup(x => x.GetListingById(It.IsAny<string>())).Returns(classifiedList);
         }
+
         #endregion
 
         #region Unit Test Cases
@@ -105,73 +98,50 @@ namespace Classifieds.Listings.BusinessServices.Test
             var result = _service.GetListingById(null);
         }
 
+        /// <summary>
+        /// tests the positive test criteria
+        /// </summary>
         [TestMethod]
-        public void PostListTest()
+        public void GetListingByCategoryTest()
         {
-            //Arrange
-            Listing lstObject = GetListObject();
-            _moqAppManager.Setup(x => x.Add(It.IsAny<Listing>())).Returns(lstObject);
+            // Arrange
+            SetUpClassifiedsListing();
+            _moqAppManager.Setup(x => x.GetListingsByCategory("Housing")).Returns(classifiedList);
             
             //Act
-            var result = _service.CreateListing(lstObject);
-            
+            var result = _service.GetListingsByCategory("Housing");
+
             //Assert
-            Assert.IsNotNull(result, null);
-            Assert.IsInstanceOfType(result, typeof(Listing));
+            Assert.AreEqual(1, result.Count);
+            Assert.IsNotNull(result[0]);
         }
 
-        [TestMethod]        
-        public void PostListTest_EmptyList()
-        {
-            var result = _service.CreateListing(null);
-            Assert.IsNull(result, null);
-        }
-
+        /// <summary>
+        /// tests for incorrect input giving empty result
+        /// </summary>
         [TestMethod]
-        public void DeleteListTest()
+        public void GetListingByCategory_EmptyResultTest()
         {
-            //Arrange
-            Listing lstObject = GetListObject();
-            _moqAppManager.Setup(x => x.Delete(It.IsAny<string>()));
+            // Arrange
+            SetUpClassifiedsListing();
+            _moqAppManager.Setup(x => x.GetListingsByCategory("Housing")).Returns(new List<Listing>() { new Listing() });
 
             //Act
-           _service.DeleteListing(lstObject._id);
+            var result = _service.GetListingsByCategory("Housing");
 
             //Assert
-            Assert.IsTrue(true);
-            _moqAppManager.Verify(v => v.Delete(lstObject._id), Times.Once());
+            Assert.AreEqual(1, result.Count);
+            Assert.IsInstanceOfType(result[0], typeof(Listing));
         }
 
+        /// <summary>
+        /// tests for null output if input is null
+        /// </summary>
         [TestMethod]
-        //[ExpectedException(typeof(ArgumentNullException))]
-        public void DeleteListTest_InvalidId()
+        public void GetListingByCategory_ReturnsNull()
         {
-            _service.DeleteListing(null);
-            Assert.IsTrue(true);
-            //_moqAppManager.Verify(v => v.Delete(null), Times.Once());
-        }
-
-        [TestMethod]
-        public void PutListTest()
-        {
-            //Arrange
-            Listing lstObject = GetListObject();
-            _moqAppManager.Setup(x => x.Update(It.IsAny<string>(), It.IsAny<Listing>())).Returns(lstObject);
-            var updatedList = new Listing() { Title = lstObject.Title, ListingType = lstObject.ListingType };
-            //Act
-            var result = _service.UpdateListing(lstObject._id,updatedList);
-
-            //Assert
-            Assert.IsNotNull(result, null);
-            Assert.IsInstanceOfType(result, typeof(Listing));
-        }
-
-        [TestMethod]        
-        public void PutListTest_InvalidId()
-        {
-            var updatedList = new Listing() { Title = "testupdated", ListingType = "testupdated" };
-            var result = _service.UpdateListing(null, updatedList);
-            Assert.IsNull(result);           
+            var result = _service.GetListingsByCategory(null);
+            Assert.IsNull(result);
         }
         #endregion
     }
