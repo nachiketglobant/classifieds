@@ -13,6 +13,7 @@ namespace Classifieds.Listings.BusinessServices.Test
         #region Class Variables
         private Mock<IListingRepository> _moqAppManager;
         private IListingService _service;
+        private List<Listing> classifiedList = new List<Listing>();
         #endregion
 
         #region Initialize
@@ -55,7 +56,7 @@ namespace Classifieds.Listings.BusinessServices.Test
                 Photos = "test"
             };
 
-            var classifiedList = new List<Listing>();
+            
             classifiedList.Add(lstListing);
             _moqAppManager.Setup(x => x.GetListingById(It.IsAny<string>())).Returns(classifiedList);
         }
@@ -95,6 +96,52 @@ namespace Classifieds.Listings.BusinessServices.Test
         public void Controller_GetListingById_ThrowsException()
         {
             var result = _service.GetListingById(null);
+        }
+
+        /// <summary>
+        /// tests the positive test criteria
+        /// </summary>
+        [TestMethod]
+        public void GetListingByCategoryTest()
+        {
+            // Arrange
+            SetUpClassifiedsListing();
+            _moqAppManager.Setup(x => x.GetListingsByCategory("Housing")).Returns(classifiedList);
+            
+            //Act
+            var result = _service.GetListingsByCategory("Housing");
+
+            //Assert
+            Assert.AreEqual(1, result.Count);
+            Assert.IsNotNull(result[0]);
+        }
+
+        /// <summary>
+        /// tests for incorrect input giving empty result
+        /// </summary>
+        [TestMethod]
+        public void GetListingByCategory_EmptyResultTest()
+        {
+            // Arrange
+            SetUpClassifiedsListing();
+            _moqAppManager.Setup(x => x.GetListingsByCategory("Housing")).Returns(new List<Listing>() { new Listing() });
+
+            //Act
+            var result = _service.GetListingsByCategory("Housing");
+
+            //Assert
+            Assert.AreEqual(1, result.Count);
+            Assert.IsInstanceOfType(result[0], typeof(Listing));
+        }
+
+        /// <summary>
+        /// tests for null output if input is null
+        /// </summary>
+        [TestMethod]
+        public void GetListingByCategory_ReturnsNull()
+        {
+            var result = _service.GetListingsByCategory(null);
+            Assert.IsNull(result);
         }
         #endregion
     }

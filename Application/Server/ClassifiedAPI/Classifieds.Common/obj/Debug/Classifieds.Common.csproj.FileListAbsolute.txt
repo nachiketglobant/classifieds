@@ -29,3 +29,9 @@ E:\Classifieds\classifieds\Application\Server\ClassifiedAPI\Classifieds.Common\b
 E:\Classifieds\classifieds\Application\Server\ClassifiedAPI\Classifieds.Common\obj\Debug\Classifieds.Common.csprojResolveAssemblyReference.cache
 E:\Classifieds\classifieds\Application\Server\ClassifiedAPI\Classifieds.Common\obj\Debug\Classifieds.Common.dll
 E:\Classifieds\classifieds\Application\Server\ClassifiedAPI\Classifieds.Common\obj\Debug\Classifieds.Common.pdb
+D:\Projects\Classifieds\classifieds\classifieds\Application\Server\ClassifiedAPI\Classifieds.Common\bin\Debug\Classifieds.Common.dll
+D:\Projects\Classifieds\classifieds\classifieds\Application\Server\ClassifiedAPI\Classifieds.Common\bin\Debug\Classifieds.Common.pdb
+D:\Projects\Classifieds\classifieds\classifieds\Application\Server\ClassifiedAPI\Classifieds.Common\bin\Debug\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\Projects\Classifieds\classifieds\classifieds\Application\Server\ClassifiedAPI\Classifieds.Common\obj\Debug\Classifieds.Common.csprojResolveAssemblyReference.cache
+D:\Projects\Classifieds\classifieds\classifieds\Application\Server\ClassifiedAPI\Classifieds.Common\obj\Debug\Classifieds.Common.dll
+D:\Projects\Classifieds\classifieds\classifieds\Application\Server\ClassifiedAPI\Classifieds.Common\obj\Debug\Classifieds.Common.pdb
