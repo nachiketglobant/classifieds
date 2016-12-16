@@ -5,6 +5,7 @@
 const webpack = require('webpack');
 const helpers = require('./helpers');
 
+
 /*
  * Webpack Plugins
  */
@@ -148,8 +149,8 @@ module.exports = function (options) {
 
         {
           test: /\.scss$/,
-            loaders: ['style-loader', 'css-loader', 'sass-loader']
-        }
+          loaders: ["style-loader", "css-loader", "sass-loader"]
+        },
 
       ],
 
@@ -166,7 +167,6 @@ module.exports = function (options) {
         filename: 'webpack-assets.json',
         prettyPrint: true
       }),
-
       /*
        * Plugin: ForkCheckerPlugin
        * Description: Do type checking in a separate process, so webpack don't need to wait.
@@ -298,6 +298,7 @@ module.exports = function (options) {
         helpers.root('node_modules/@angular/core/src/facade/math.js')
       ),
     ],
+
 
     /*
      * Include polyfills or mocks for various node stuff
