@@ -55,7 +55,11 @@ namespace Classifieds.Listings.Repository
             }
         }
 
-
+        /// <summary>
+        /// Insert a new listing object into the database
+        /// </summary>
+        /// <param name="object">listing object</param>
+        /// <returns>return newly added listing object</returns>
         public Listing Add(Listing listing)
         {
             try
@@ -73,6 +77,12 @@ namespace Classifieds.Listings.Repository
             }
         }
 
+        /// <summary>
+        /// Update existing listing object based on id from the database
+        /// </summary>
+        /// <param name="id">Listing Id</param>
+        /// <param name="object">listing object </param>
+        /// <returns>return updated listing object</returns>
         public Listing Update(string id, Listing listObj)
         {
             try
@@ -117,13 +127,24 @@ namespace Classifieds.Listings.Repository
             }
         }
 
+        /// <summary>
+        /// Delete listing object based on id from the database
+        /// </summary>
+        /// <param name="id">Listing Id</param>
+        /// <returns>return void</returns>
         public void Delete(string id)
         {
-            var query = Query<Listing>.EQ(p => p._id, id.ToString());
-            var result = this.classifieds.Remove(query);
-            if (result.DocumentsAffected == 0 && result.HasLastErrorMessage)
+            try
+            {                
+                var query = Query<Listing>.EQ(p => p._id, id.ToString());
+                var result = this.classifieds.Remove(query);
+                if (result.DocumentsAffected == 0 && result.HasLastErrorMessage)
+                { //Trace.TraceError(result.LastErrorMessage);
+                }
+            }
+            catch (Exception ex)
             {
-                //Trace.TraceError(result.LastErrorMessage);
+                throw ex;
             }
         }
     }

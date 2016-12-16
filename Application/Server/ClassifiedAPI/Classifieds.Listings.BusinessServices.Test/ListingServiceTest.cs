@@ -27,8 +27,18 @@ namespace Classifieds.Listings.BusinessServices.Test
         #region Setup
         private void SetUpClassifiedsListing()
         {
-            var lstListing = new Listing()
+            var lstListing = GetListObject();
+
+            var classifiedList = new List<Listing>();
+            classifiedList.Add(lstListing);
+            _moqAppManager.Setup(x => x.GetListingById(It.IsAny<string>())).Returns(classifiedList);
+        }
+
+        private Listing GetListObject()
+        {
+            Listing listObject = new Listing
             {
+                _id = "9",
                 ListingType = "test",
                 ListingCategory = "test",
                 SubCategory = "test",
@@ -54,12 +64,10 @@ namespace Classifieds.Listings.BusinessServices.Test
                 TypeofUse = "test",
                 Photos = "test"
             };
+            return listObject;
 
-            var classifiedList = new List<Listing>();
-            classifiedList.Add(lstListing);
-            _moqAppManager.Setup(x => x.GetListingById(It.IsAny<string>())).Returns(classifiedList);
+
         }
-
         #endregion
 
         #region Unit Test Cases
@@ -95,6 +103,75 @@ namespace Classifieds.Listings.BusinessServices.Test
         public void Controller_GetListingById_ThrowsException()
         {
             var result = _service.GetListingById(null);
+        }
+
+        [TestMethod]
+        public void PostListTest()
+        {
+            //Arrange
+            Listing lstObject = GetListObject();
+            _moqAppManager.Setup(x => x.Add(It.IsAny<Listing>())).Returns(lstObject);
+            
+            //Act
+            var result = _service.CreateListing(lstObject);
+            
+            //Assert
+            Assert.IsNotNull(result, null);
+            Assert.IsInstanceOfType(result, typeof(Listing));
+        }
+
+        [TestMethod]        
+        public void PostListTest_EmptyList()
+        {
+            var result = _service.CreateListing(null);
+            Assert.IsNull(result, null);
+        }
+
+        [TestMethod]
+        public void DeleteListTest()
+        {
+            //Arrange
+            Listing lstObject = GetListObject();
+            _moqAppManager.Setup(x => x.Delete(It.IsAny<string>()));
+
+            //Act
+           _service.DeleteListing(lstObject._id);
+
+            //Assert
+            Assert.IsTrue(true);
+            _moqAppManager.Verify(v => v.Delete(lstObject._id), Times.Once());
+        }
+
+        [TestMethod]
+        //[ExpectedException(typeof(ArgumentNullException))]
+        public void DeleteListTest_InvalidId()
+        {
+            _service.DeleteListing(null);
+            Assert.IsTrue(true);
+            //_moqAppManager.Verify(v => v.Delete(null), Times.Once());
+        }
+
+        [TestMethod]
+        public void PutListTest()
+        {
+            //Arrange
+            Listing lstObject = GetListObject();
+            _moqAppManager.Setup(x => x.Update(It.IsAny<string>(), It.IsAny<Listing>())).Returns(lstObject);
+            var updatedList = new Listing() { Title = lstObject.Title, ListingType = lstObject.ListingType };
+            //Act
+            var result = _service.UpdateListing(lstObject._id,updatedList);
+
+            //Assert
+            Assert.IsNotNull(result, null);
+            Assert.IsInstanceOfType(result, typeof(Listing));
+        }
+
+        [TestMethod]        
+        public void PutListTest_InvalidId()
+        {
+            var updatedList = new Listing() { Title = "testupdated", ListingType = "testupdated" };
+            var result = _service.UpdateListing(null, updatedList);
+            Assert.IsNull(result);           
         }
         #endregion
     }
