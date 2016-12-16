@@ -31,10 +31,10 @@ namespace Classifieds.Listings.BusinessServices
         }
 
         /// <summary>
-        /// 
+        /// service method returns collection of listing
         /// </summary>
-        /// <param name="category"></param>
-        /// <returns></returns>
+        /// <param name="category">listing category</param>
+        /// <returns>collection(listing)</returns>
         public List<Listing> GetListingsByCategory(string category)
         {
             try
@@ -44,6 +44,43 @@ namespace Classifieds.Listings.BusinessServices
             catch (Exception ex)
             {
                 return null;
+            }
+        }
+
+
+        public Listing CreateListing(Listing listObject)
+        {
+            try
+            {
+                return _listingRepository.Add(listObject);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public Listing UpdateListing(string id, Listing listObject)
+        {
+            try
+            {
+                return _listingRepository.Update(id, listObject);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void DeleteListing(string id)
+        {
+            try
+            {
+                _listingRepository.Delete(id);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
     }

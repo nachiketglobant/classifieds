@@ -1,21 +1,33 @@
-﻿using System;
+﻿#region Imports
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Classifieds.Search.BusinessEntities;
 using Classifieds.Search.Repository;
+#endregion  
 
 namespace Classifieds.Search.BusinessServices
 {
     public class SearchService : ISearchService
     {
-        private ISearchRepository _searchRepository;
-                
-        public SearchService()
+        #region Private Variables
+
+            private ISearchRepository _searchRepository;
+
+        #endregion
+
+        #region Constructor
+
+        public SearchService(ISearchRepository searchRepository)
         {
-            _searchRepository = new SearchRepository();
+            _searchRepository = searchRepository;
         }
+
+        #endregion
+
+        #region Public Methods
         /// <summary>
         /// 
         /// </summary>
@@ -32,5 +44,7 @@ namespace Classifieds.Search.BusinessServices
                 throw ex;
             }
         }
+
+        #endregion
     }
 }

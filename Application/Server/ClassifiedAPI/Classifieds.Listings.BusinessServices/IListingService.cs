@@ -7,5 +7,8 @@ namespace Classifieds.Listings.BusinessServices
     {
         List<Listing> GetListingById(string id);
         List<Listing> GetListingsByCategory(string category);
+        Listing CreateListing(Listing listObject);
+        Listing UpdateListing(string id, Listing listObject);
+        void DeleteListing(string id);
     }
 }
