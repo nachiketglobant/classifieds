@@ -65,7 +65,7 @@ namespace Classifieds.ListingsAPI.Controllers
                 {
                     var Classified = _listingService.CreateListing(listingObj);
                     result = Request.CreateResponse<Listing>(HttpStatusCode.Created, Classified);
-                    string newItemURL = Url.Link("Listing", new { id = Classified._id });
+                    string newItemURL = Url.Link("Listings", new { id = Classified._id });
                     result.Headers.Location = new Uri(newItemURL);
                 }
                 catch (Exception ex)
@@ -90,8 +90,9 @@ namespace Classifieds.ListingsAPI.Controllers
             {
                 try
                 {
-                    _listingService.UpdateListing(id, value);
-                    result = Request.CreateResponse(HttpStatusCode.NoContent);
+                   var Classified = _listingService.UpdateListing(id, value);
+                    result = Request.CreateResponse<Listing>(HttpStatusCode.Accepted, Classified);
+                    //result = Request.CreateResponse(HttpStatusCode.NoContent);
                 }
                 catch (Exception ex)
                 {
