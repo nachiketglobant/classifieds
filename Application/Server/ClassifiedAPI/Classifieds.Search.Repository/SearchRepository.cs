@@ -5,27 +5,20 @@ using Classifieds.Search.BusinessEntities;
 using MongoDB.Driver;
 using MongoDB.Driver.Builders;
 using MongoDB.Driver.Linq;
+using System.Configuration;
 
 namespace Classifieds.Search.Repository
 {
-    public class SearchRepository : ISearchRepository
+    public class SearchRepository : DBRepository, ISearchRepository
     {
-        private const string CONNECTION_STRING = "mongodb://localhost";
-
-        private const string DATABASE = "classifiedDB";
-        private const string COLLECTION_Classifieds = "classified";
-
-        private MongoClient client = null;
-        private MongoServer server = null;
-        private MongoDatabase db = null;
-        private MongoCollection<Classified> classifieds = null;
+        private string _ClassifiedsCollection = ConfigurationManager.AppSettings["Collection"];
+        MongoCollection<Classified> classifieds
+        {
+            get { return Database.GetCollection<Classified>(_ClassifiedsCollection); }
+        }
 
         public SearchRepository()
         {
-            client = new MongoClient(CONNECTION_STRING);
-            server = client.GetServer();
-            db = server.GetDatabase(DATABASE);
-            classifieds = db.GetCollection<Classified>(COLLECTION_Classifieds);
         }
 
         public List<Classified> FullTextSearch(string searchText)
