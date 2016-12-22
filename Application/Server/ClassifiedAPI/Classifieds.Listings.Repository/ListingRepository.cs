@@ -27,12 +27,40 @@ namespace Classifieds.Listings.Repository
         {
             get { return _dbRepository.GetCollection<Listing>(COLLECTION_Classifieds); }
         }
+        /// <summary>
+        /// Returns a listing based on listing id
+        /// </summary>
+        /// <param name="id">listing id</param>
+        /// <returns>listing</returns>
         public List<Listing> GetListingById(string id)
         {
             try
             {
                 var partialRresult = this.classifieds.FindAll() 
                                         .Where(p => p._id == id)
+                                        .ToList();
+
+                List<Listing> result = partialRresult.Count > 0 ? partialRresult.ToList() : null;
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        /// <summary>
+        /// Returns a collection of listings based on sub category
+        /// </summary>
+        /// <param name="subCategory">listing Sub Category</param>
+        /// <returns>Collection of listings</returns>
+        public List<Listing> GetListingsBySubCategory(string subCategory)
+        {
+            try
+            {
+                var partialRresult = this.classifieds.FindAll()
+                                        .Where(p => p.SubCategory == subCategory)
                                         .ToList();
 
                 List<Listing> result = partialRresult.Count > 0 ? partialRresult.ToList() : null;

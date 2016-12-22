@@ -31,6 +31,22 @@ namespace Classifieds.Listings.BusinessServices
         }
 
         /// <summary>
+        /// Returns the listings for given sub category
+        /// </summary>
+        /// <param name="subCategory">listing Sub Category</param>
+        /// <returns>List<Listing></returns>
+        public List<Listing> GetListingsBySubCategory(string subCategory)
+        {
+            try
+            {
+                return _listingRepository.GetListingsBySubCategory(subCategory).ToList();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        /// <summary>
         /// service method returns collection of listing
         /// </summary>
         /// <param name="category">listing category</param>

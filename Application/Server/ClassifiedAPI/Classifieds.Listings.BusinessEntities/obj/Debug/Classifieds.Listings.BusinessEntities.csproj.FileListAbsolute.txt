@@ -44,3 +44,14 @@ E:\Classifieds\classifieds\Application\Server\ClassifiedAPI\Classifieds.Listings
 E:\Classifieds\classifieds\Application\Server\ClassifiedAPI\Classifieds.Listings.BusinessEntities\bin\Debug\MongoDB.Driver.Core.xml
 E:\Classifieds\classifieds\Application\Server\ClassifiedAPI\Classifieds.Listings.BusinessEntities\obj\Debug\Classifieds.Listings.BusinessEntities.dll
 E:\Classifieds\classifieds\Application\Server\ClassifiedAPI\Classifieds.Listings.BusinessEntities\obj\Debug\Classifieds.Listings.BusinessEntities.pdb
+E:\git\Classified\classifieds\Application\Server\ClassifiedAPI\Classifieds.Listings.BusinessEntities\bin\Debug\Classifieds.Listings.BusinessEntities.dll
+E:\git\Classified\classifieds\Application\Server\ClassifiedAPI\Classifieds.Listings.BusinessEntities\bin\Debug\Classifieds.Listings.BusinessEntities.pdb
+E:\git\Classified\classifieds\Application\Server\ClassifiedAPI\Classifieds.Listings.BusinessEntities\bin\Debug\MongoDB.Bson.dll
+E:\git\Classified\classifieds\Application\Server\ClassifiedAPI\Classifieds.Listings.BusinessEntities\bin\Debug\MongoDB.Driver.Core.dll
+E:\git\Classified\classifieds\Application\Server\ClassifiedAPI\Classifieds.Listings.BusinessEntities\bin\Debug\MongoDB.Driver.dll
+E:\git\Classified\classifieds\Application\Server\ClassifiedAPI\Classifieds.Listings.BusinessEntities\bin\Debug\System.Runtime.InteropServices.RuntimeInformation.dll
+E:\git\Classified\classifieds\Application\Server\ClassifiedAPI\Classifieds.Listings.BusinessEntities\bin\Debug\MongoDB.Bson.xml
+E:\git\Classified\classifieds\Application\Server\ClassifiedAPI\Classifieds.Listings.BusinessEntities\bin\Debug\MongoDB.Driver.xml
+E:\git\Classified\classifieds\Application\Server\ClassifiedAPI\Classifieds.Listings.BusinessEntities\bin\Debug\MongoDB.Driver.Core.xml
+E:\git\Classified\classifieds\Application\Server\ClassifiedAPI\Classifieds.Listings.BusinessEntities\obj\Debug\Classifieds.Listings.BusinessEntities.dll
+E:\git\Classified\classifieds\Application\Server\ClassifiedAPI\Classifieds.Listings.BusinessEntities\obj\Debug\Classifieds.Listings.BusinessEntities.pdb
