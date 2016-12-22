@@ -39,7 +39,7 @@ namespace Classifieds.Listings.BusinessServices
         {
             try
             {
-                return _listingRepository.GetListingsBySubCategory(subCategory);
+                return _listingRepository.GetListingsBySubCategory(subCategory).ToList();
             }
             catch (Exception ex)
             {

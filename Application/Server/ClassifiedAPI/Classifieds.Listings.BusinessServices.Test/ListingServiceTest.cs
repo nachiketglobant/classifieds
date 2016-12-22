@@ -32,7 +32,7 @@ namespace Classifieds.Listings.BusinessServices.Test
 
 
             classifiedList.Add(lstListing);
-            _moqAppManager.Setup(x => x.GetListingById(It.IsAny<string>())).Returns(classifiedList);
+           // _moqAppManager.Setup(x => x.GetListingById(It.IsAny<string>())).Returns(classifiedList);
         }
 
         private Listing GetListObject()
@@ -75,6 +75,8 @@ namespace Classifieds.Listings.BusinessServices.Test
         {
             // Arrange
             SetUpClassifiedsListing();
+            _moqAppManager.Setup(x => x.GetListingById(It.IsAny<string>())).Returns(classifiedList);
+
 
             //Act
             var result = _service.GetListingById("123");
@@ -99,13 +101,33 @@ namespace Classifieds.Listings.BusinessServices.Test
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
-        public void Controller_GetListingById_ThrowsException()
+        public void GetListingById_ThrowsException()
         {
             var result = _service.GetListingById(null);
         }
 
+        [TestMethod]
+        public void GetListingsBySubCategoryTest()
+        {
+            // Arrange
+            SetUpClassifiedsListing();
+            _moqAppManager.Setup(x => x.GetListingsBySubCategory(It.IsAny<string>())).Returns(classifiedList);
 
-            [TestMethod]
+            //Act
+            var result = _service.GetListingsBySubCategory("test");
+
+            //Assert
+            Assert.AreEqual(result.Count, 1);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void GetListingsBySubCategory_ThrowsException()
+        {
+            var result = _service.GetListingsBySubCategory(null);
+        }
+
+        [TestMethod]
         public void GetListingsBySubCategory_EmptyResult_Test()
         {
             // Arrange
