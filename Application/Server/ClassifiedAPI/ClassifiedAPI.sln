@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Classifieds.Common", "Classifieds.Common\Classifieds.Common.csproj", "{B67F4456-5934-4AA2-A613-3F927DAD8DCA}"
 EndProject
@@ -26,6 +26,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Classifieds.Listings.Repository", "Classifieds.Listings.Repository\Classifieds.Listings.Repository.csproj", "{46CC0D61-079E-4375-B3A5-E1EF9CDE7736}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Classifieds.Listings.BusinessServices.Test", "Classifieds.Listings.BusinessServices.Test\Classifieds.Listings.BusinessServices.Test.csproj", "{8E055660-06AB-40A3-9C40-E00B9C611467}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Classifieds.Listings.Repository.Tests", "Classifieds.Listings.Repository.Tests\Classifieds.Listings.Repository.Tests.csproj", "{9E1833D9-3352-4A1E-A87E-137C62485237}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +83,10 @@ Global
 		{8E055660-06AB-40A3-9C40-E00B9C611467}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8E055660-06AB-40A3-9C40-E00B9C611467}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8E055660-06AB-40A3-9C40-E00B9C611467}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E1833D9-3352-4A1E-A87E-137C62485237}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E1833D9-3352-4A1E-A87E-137C62485237}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E1833D9-3352-4A1E-A87E-137C62485237}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E1833D9-3352-4A1E-A87E-137C62485237}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -17,6 +17,7 @@ namespace Classifieds.ListingsAPI
             var container = new UnityContainer();
             container.RegisterType<IListingService, ListingService>(new HierarchicalLifetimeManager());
             container.RegisterType<IListingRepository, ListingRepository>(new HierarchicalLifetimeManager());
+            container.RegisterType<IDBRepository, DBRepository>(new HierarchicalLifetimeManager());
             config.DependencyResolver = new UnityResolver(container);
             // Web API routes
             config.MapHttpAttributeRoutes();

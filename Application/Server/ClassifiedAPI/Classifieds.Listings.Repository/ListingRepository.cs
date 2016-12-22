@@ -13,9 +13,19 @@ namespace Classifieds.Listings.Repository
     {
         //private const string COLLECTION_Classifieds = "Listing";
         private string COLLECTION_Classifieds = ConfigurationManager.AppSettings["ListingCollection"];
+        //MongoCollection<Listing> classifieds
+        //{
+        //    get { return Database.GetCollection<Listing>(COLLECTION_Classifieds); }
+        //}
+        private IDBRepository _dbRepository;
+        public ListingRepository(IDBRepository DBRepository)
+        {
+            _dbRepository = DBRepository;
+        }
+
         MongoCollection<Listing> classifieds
         {
-            get { return Database.GetCollection<Listing>(COLLECTION_Classifieds); }
+            get { return _dbRepository.GetCollection<Listing>(COLLECTION_Classifieds); }
         }
         public List<Listing> GetListingById(string id)
         {

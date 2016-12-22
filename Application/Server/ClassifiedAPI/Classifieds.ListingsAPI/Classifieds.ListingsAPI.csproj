@@ -184,7 +184,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>64238</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost/ListingAPI/</IISUrl>
+          <IISUrl>http://localhost/ListingsAPI/</IISUrl>
           <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
           <IISAppRootUrl>http://localhost/ListingAPI/</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

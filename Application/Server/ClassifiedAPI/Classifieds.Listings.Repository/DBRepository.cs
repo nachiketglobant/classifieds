@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Classifieds.Listings.Repository
 {
-    public class DBRepository
+    public class DBRepository: IDBRepository
     {
 
         private string CONNECTION_STRING = ConfigurationManager.ConnectionStrings["ListingConnectionString"].ConnectionString;
@@ -28,6 +28,11 @@ namespace Classifieds.Listings.Repository
         protected MongoDatabase Database
         {
             get { return server.GetDatabase(DATABASE); }
+        }
+
+        public MongoCollection<Listing> GetCollection<Listing>(string name)
+        {
+            return db.GetCollection<Listing>(name);
         }
     }
 }
