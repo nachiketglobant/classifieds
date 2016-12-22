@@ -104,6 +104,22 @@ namespace Classifieds.Listings.BusinessServices.Test
             var result = _service.GetListingById(null);
         }
 
+
+            [TestMethod]
+        public void GetListingsBySubCategory_EmptyResult_Test()
+        {
+            // Arrange
+            _moqAppManager.Setup(x => x.GetListingsBySubCategory(It.IsAny<string>())).Returns(new List<Listing>() { new Listing() });
+
+            //Act
+            var result = _service.GetListingsBySubCategory("123");
+
+            //Assert
+            Assert.IsNotNull(result[0], null);
+            Assert.IsInstanceOfType(result, typeof(IList<Listing>));
+        }
+
+        
         /// <summary>
         /// tests the positive test criteria
         /// </summary>

@@ -67,6 +67,53 @@ namespace Classifieds.ListingsAPI.Tests
         }
 
         [TestMethod]
+        public void GetListingsBySubCategoryTest()
+        {
+            var mockService = new Mock<IListingService>();
+            mockService.Setup(x => x.GetListingsBySubCategory(It.IsAny<string>()))
+                .Returns(
+                new List<Listing>
+                { new Listing
+                   {
+                        ListingType = "test",
+                        ListingCategory = "test",
+                        SubCategory = "test",
+                        Title = "test",
+                        Address = "AAA",
+                        ContactNo = "1111",
+                        ContactName = "AAA AAA",
+                        Configuration = "NA",
+                        Details = "for rupees 20,000,000,000",
+                        Brand = "test",
+                        Price = 123,
+                        YearOfPurchase = 123,
+                        ExpiryDate = "test",
+                        Status = "test",
+                        Submittedby = "test",
+                        SubmittedDate = "test",
+                        IdealFor = "test",
+                        Furnished = "test",
+                        FuelType = "test",
+                        KmDriven = 123,
+                        YearofMake = 123,
+                        Dimensions = "test",
+                        TypeofUse = "test",
+                        Photos = "test"
+                   }
+                });
+
+            var controller = new ListingsController(mockService.Object);
+
+            //Act
+            List<Listing> objList = new List<Listing>();
+            objList = controller.GetListingsBySubCategory("test");
+
+            //Assert
+            Assert.AreEqual(objList.Count, 1);
+            Assert.AreEqual(objList[0].SubCategory, "test");
+        }
+
+        [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
         public void Controller_GetListingById_ThrowsException()
         {
@@ -74,6 +121,16 @@ namespace Classifieds.ListingsAPI.Tests
             var controller = new ListingsController(mockService.Object);
             var result = controller.GetListingById(null);
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void Controller_GetListingsBySubCategory_ThrowsException()
+        {
+            var mockService = new Mock<IListingService>();
+            var controller = new ListingsController(mockService.Object);
+            var result = controller.GetListingsBySubCategory(null);
+        }
+
 
         [TestMethod]
         public void GetListingsByCategory_ReturnsList()

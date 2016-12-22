@@ -23,6 +23,11 @@ namespace Classifieds.ListingsAPI.Controllers
             return "Hi Classifieds";
         }
 
+        /// <summary>
+        /// Returns the listing for given id
+        /// </summary>
+        /// <param name="id">listing id</param>
+        /// <returns></returns>
         public List<Listing> GetListingById(string id)
         {
             try
@@ -35,6 +40,23 @@ namespace Classifieds.ListingsAPI.Controllers
                 throw ex;
             }
 
+        }
+
+        /// <summary>
+        /// Returns the listings for given sub category
+        /// </summary>
+        /// <param name="subCategory">listing Sub Category</param>
+        /// <returns></returns>
+        public List<Listing> GetListingsBySubCategory(string subCategory)
+        {
+            try
+            {
+                return _listingService.GetListingsBySubCategory(subCategory).ToList();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         /// <summary>
