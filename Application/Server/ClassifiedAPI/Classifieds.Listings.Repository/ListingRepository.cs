@@ -83,7 +83,7 @@ namespace Classifieds.Listings.Repository
             }
             catch (Exception ex)
             {
-                throw ex;
+                return null; //throw ex;
             }
         }
 
@@ -133,7 +133,7 @@ namespace Classifieds.Listings.Repository
             }
             catch (Exception ex)
             {
-                throw ex;
+               return null; //throw ex;
             }
         }
 

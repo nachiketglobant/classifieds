@@ -54,10 +54,17 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Classifieds.Listings.BusinessEntities\Classifieds.Listings.BusinessEntities.csproj">
+      <Project>{1FF950D6-172E-4732-80D5-C192669F3E18}</Project>
+      <Name>Classifieds.Listings.BusinessEntities</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Classifieds.Listings.Repository\Classifieds.Listings.Repository.csproj">
       <Project>{46CC0D61-079E-4375-B3A5-E1EF9CDE7736}</Project>
       <Name>Classifieds.Listings.Repository</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
