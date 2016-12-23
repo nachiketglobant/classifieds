@@ -10,7 +10,7 @@ namespace Classifieds.Listings.Repository.Tests
     public class ListingRepositoryTest
     {
         #region Class Variables
-        private IListingRepository _customerRepo;
+        private IListingRepository _listingRepo;
         private IDBRepository _dbRepository;
         private List<Listing> classifiedList = new List<Listing>();
         #endregion
@@ -20,8 +20,8 @@ namespace Classifieds.Listings.Repository.Tests
         public void Initialize()
         {
             _dbRepository = new DBRepository();
-            _customerRepo = new ListingRepository(_dbRepository);
-            
+            _listingRepo = new ListingRepository(_dbRepository);
+
         }
         #endregion
 
@@ -70,21 +70,26 @@ namespace Classifieds.Listings.Repository.Tests
         [TestMethod]
         public void Repo_GetListingByIdTest()
         {
-            // Arrange
-            SetUpClassifiedsListing();
+            /*In this test case we add one post and pass recently added post's Id as a parameter to GetListingById() method instead of passing hard coded value*/
+            //Arrange
+            Listing lstObject = GetListObject();
 
             //Act
-            var result = _customerRepo.GetListingById("5855490f54de7c20a8f52b19");
+            var result = _listingRepo.Add(lstObject);
+
+            Assert.IsNotNull(result, null);
+
+            var recentlyAddedRecord = _listingRepo.GetListingById(result._id);
 
             //Assert
-            Assert.AreEqual(result.Count, 1);
+            Assert.AreEqual(recentlyAddedRecord.Count, 1);
         }
-        
-        [TestMethod]        
+
+        [TestMethod]
         public void Repo_GetListingByIdTest_InvalidId()
-        {           
+        {
             //Act
-            var result = _customerRepo.GetListingById(null);
+            var result = _listingRepo.GetListingById(null);
 
             //Assert
             Assert.IsNull(result);
@@ -95,31 +100,34 @@ namespace Classifieds.Listings.Repository.Tests
         {
             // Arrange
             SetUpClassifiedsListing();
-            
+
             //Act
-            var result = _customerRepo.GetListingsByCategory("Automobile");
+            var result = _listingRepo.GetListingsByCategory("Automobile");
 
             //Assert
-            Assert.AreEqual(1, result.Count);
+            //Assert.AreEqual(1, result.Count);
             Assert.IsNotNull(result[0]);
         }
 
         [TestMethod]
-        public void Repo_GetListingByCategory_InvalidCategory()
+        public void Repo_GetListingByCategory_Invalid_OR_Null_Category()
         {
-            var result = _customerRepo.GetListingsByCategory("qazxsw");
-            Assert.AreEqual(0, result.Count);                  
+            var result = _listingRepo.GetListingsByCategory("qazxsw");
+            Assert.AreEqual(0, result.Count);
+
+            var nullresult = _listingRepo.GetListingsByCategory(null);
+            Assert.AreEqual(0, nullresult.Count);
         }
-        
+
         [TestMethod]
-        public void Repo_PostListTest()
+        public void Repo_AddListTest()
         {
             //Arrange
             Listing lstObject = GetListObject();
             //_moqAppManager.Setup(x => x.Add(It.IsAny<Listing>())).Returns(lstObject);
 
             //Act
-            var result = _customerRepo.Add(lstObject);
+            var result = _listingRepo.Add(lstObject);
 
             //Assert
             Assert.IsNotNull(result, null);
@@ -127,9 +135,9 @@ namespace Classifieds.Listings.Repository.Tests
         }
 
         [TestMethod]
-        public void Repo_PostListTest_EmptyList()
+        public void Repo_AddListTest_EmptyList()
         {
-            var result = _customerRepo.Add(null);
+            var result = _listingRepo.Add(null);
             Assert.IsNull(result, null);
         }
 
@@ -139,7 +147,7 @@ namespace Classifieds.Listings.Repository.Tests
             //Arrange
             Listing lstObject = new Listing
             {
-               // _id = Guid.NewGuid().ToString(),
+                // _id = Guid.NewGuid().ToString(),
                 ListingType = "test",
                 ListingCategory = "test",
                 SubCategory = "test",
@@ -167,51 +175,89 @@ namespace Classifieds.Listings.Repository.Tests
             };
 
             //Act
-            var result = _customerRepo.Add(lstObject);
+            var result = _listingRepo.Add(lstObject);
             Assert.IsNotNull(result._id);
-            _customerRepo.Delete(result._id);
+            _listingRepo.Delete(result._id);
 
             //Assert
             Assert.IsTrue(true);
-            
+
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(FormatException))]
+        public void Repo_DeleteListTest_InvalidId()
+        {
+            _listingRepo.Delete("qwer");
+            Assert.IsTrue(true);
         }
 
         [TestMethod]
         [ExpectedException(typeof(NullReferenceException))]
-        public void Repo_DeleteListTest_InvalidId()
+        public void Repo_DeleteListTest_NUllId()
         {
-            _customerRepo.Delete(null);
-            Assert.IsTrue(true);           
+            _listingRepo.Delete(null);
+            Assert.IsTrue(true);
         }
 
         [TestMethod]
-        public void Repo_PutListTest()
+        public void Repo_UpdateListTest()
         {
             //Arrange
             Listing lstObject = GetListObject();
 
 
             //Act
-            var result = _customerRepo.Add(lstObject);
+            var result = _listingRepo.Add(lstObject);
             Assert.IsNotNull(result._id);
             result.Title = "UpdatedTest";
             result.ListingCategory = "UpdatedHousing";
-           
-            var Updatedresult = _customerRepo.Update(result._id, result);
+
+            var Updatedresult = _listingRepo.Update(result._id, result);
             Assert.IsNotNull(Updatedresult);
-           
+
             Assert.AreEqual(result.Title, Updatedresult.Title);
             Assert.IsInstanceOfType(result, typeof(Listing));
         }
 
         [TestMethod]
-        public void Repo_PutListTest_EmptyList()
+        public void Repo_UpdateListTest_EmptyList()
         {
             Listing updatedList = null;
-            var result = _customerRepo.Update(null, updatedList);
+            var result = _listingRepo.Update(null, updatedList);
             Assert.IsNull(result);
         }
+
+        [TestMethod]
+        public void Repo_GetListingsBySubCategoryTest()
+        {
+            // Arrange
+            SetUpClassifiedsListing();
+
+            //Act
+            var result = _listingRepo.GetListingsBySubCategory("test");
+
+            //Assert
+            Assert.IsNotNull(result[0]);
+        }
+
+        [TestMethod]
+        public void Repo_GetListingsBySubCategoryTest_NullSubCategory()
+        {
+            var result = _listingRepo.GetListingsBySubCategory(null);
+            Assert.IsTrue(true);
+            Assert.IsNull(result);
+        }
+
+        [TestMethod]
+        public void Repo_GetListingsBySubCategoryTest_InvalidSubCategory()
+        {
+            var result = _listingRepo.GetListingsBySubCategory("qwer");
+            Assert.IsNull(result);
+        }
+
         #endregion
-      
+
     }
 }
+
