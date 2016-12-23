@@ -5,6 +5,7 @@ using Moq;
 using Classifieds.Search.BusinessEntities;
 using Classifieds.Search.BusinessServices;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Classifieds.Common;
 #endregion
 
 namespace Classifieds.SearchAPI.Tests
@@ -18,6 +19,8 @@ namespace Classifieds.SearchAPI.Tests
         {
             //Arrange
             var mockService = new Mock<ISearchService>();
+            var logger = new Mock<ILogger>();
+
             mockService.Setup(x => x.FullTextSearch(It.IsAny<string>()))
                 .Returns(
                 new List<Classified>
@@ -34,7 +37,9 @@ namespace Classifieds.SearchAPI.Tests
                     }
                 });
 
-            var controller = new SearchAPI.Controllers.SearchController(mockService.Object);
+            logger.Setup(x => x.Log(It.IsAny<Exception>()));
+
+            var controller = new SearchAPI.Controllers.SearchController(mockService.Object, logger.Object);
 
             //Act
             List<Classified> objList = new List<Classified>();
@@ -46,11 +51,13 @@ namespace Classifieds.SearchAPI.Tests
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentNullException))]
+        [ExpectedException(typeof(NullReferenceException))]
         public void Controller_FreeTextSearch_ThrowsException()
         {
             var mockService = new Mock<ISearchService>();
-            var controller = new SearchAPI.Controllers.SearchController(mockService.Object);
+            var logger = new Mock<ILogger>();
+            logger.Setup(x => x.Log(It.IsAny<Exception>()));
+            var controller = new SearchAPI.Controllers.SearchController(mockService.Object, logger.Object);
             var result = controller.GetFullTextSearch(null);
         }
         #endregion

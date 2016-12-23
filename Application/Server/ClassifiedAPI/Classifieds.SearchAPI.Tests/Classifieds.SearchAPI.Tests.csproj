@@ -76,6 +76,10 @@
     <Compile Include="SearchBusinessServiceTest.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Classifieds.Common\Classifieds.Common.csproj">
+      <Project>{b67f4456-5934-4aa2-a613-3f927dad8dca}</Project>
+      <Name>Classifieds.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Classifieds.Search.BusinessEntities\Classifieds.Search.BusinessEntities.csproj">
       <Project>{cefc4fa4-895d-435c-9aaa-8b4af4c3aadf}</Project>
       <Name>Classifieds.Search.BusinessEntities</Name>

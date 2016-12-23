@@ -7,3 +7,5 @@
 /Application/Server/ClassifiedAPI/Classifieds.Listings.Repository.Tests/bin/Debug
 /Application/Server/ClassifiedAPI/Classifieds.Listings.Repository.Tests/obj/Debug
 /Application/Server/ClassifiedAPI/Classifieds.Search.BusinessEntities/obj/Debug
+/Application/Server/ClassifiedAPI/Classifieds.SearchAPI.Tests/bin/Debug
+/Application/Server/ClassifiedAPI/Classifieds.SearchAPI.Tests/obj/Debug
