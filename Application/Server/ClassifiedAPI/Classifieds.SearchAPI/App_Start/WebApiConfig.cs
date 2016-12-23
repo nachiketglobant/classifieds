@@ -6,6 +6,7 @@ using Microsoft.Practices.Unity;
 using Classifieds.Search.BusinessServices;
 using Classifieds.Search.Repository;
 using Classifieds.SearchAPI.Resolver;
+using Classifieds.Common;
 
 namespace Classifieds.SearchAPI
 {
@@ -17,6 +18,7 @@ namespace Classifieds.SearchAPI
             var container = new UnityContainer();
             container.RegisterType<ISearchService, SearchService>(new HierarchicalLifetimeManager());
             container.RegisterType<ISearchRepository, SearchRepository>(new HierarchicalLifetimeManager());
+            container.RegisterType<ILogger, Logger>(new HierarchicalLifetimeManager());
             config.DependencyResolver = new UnityResolver(container);
 
             // Web API routes

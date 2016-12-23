@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web.Http;
 using Classifieds.Search.BusinessEntities;
 using Classifieds.Search.BusinessServices;
+using Classifieds.Common;
 #endregion  
 
 namespace Classifieds.SearchAPI.Controllers
@@ -22,14 +23,16 @@ namespace Classifieds.SearchAPI.Controllers
     {
         #region Private Variable
         private ISearchService _searchService;
+        private ILogger _logger;
         #endregion 
 
         #region Constructor
         /// <summary>
         /// The class constructor. </summary>
-        public SearchController(ISearchService searchService)
+        public SearchController(ISearchService searchService,ILogger logger)
         {
             _searchService = searchService;
+            _logger = logger;
         }
         #endregion
 
@@ -43,12 +46,11 @@ namespace Classifieds.SearchAPI.Controllers
         {
             try
             {
-                return _searchService.FullTextSearch(searchText).ToList();
+               return _searchService.FullTextSearch(searchText).ToList();
             }
             catch (Exception ex)
             {
-                //log exception
-                throw ex;
+                throw _logger.Log(ex);
             }
 
         }
