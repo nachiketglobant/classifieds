@@ -37,7 +37,7 @@ namespace Classifieds.SearchAPI.Tests
                     }
                 });
 
-            logger.Setup(x => x.Log(It.IsAny<Exception>()));
+            logger.Setup(x => x.Log(It.IsAny<Exception>(),It.IsAny<string>()));
 
             var controller = new SearchAPI.Controllers.SearchController(mockService.Object, logger.Object);
 
@@ -56,7 +56,7 @@ namespace Classifieds.SearchAPI.Tests
         {
             var mockService = new Mock<ISearchService>();
             var logger = new Mock<ILogger>();
-            logger.Setup(x => x.Log(It.IsAny<Exception>()));
+            logger.Setup(x => x.Log(It.IsAny<Exception>(),It.IsAny<string>()));
             var controller = new SearchAPI.Controllers.SearchController(mockService.Object, logger.Object);
             var result = controller.GetFullTextSearch(null);
         }
