@@ -1,6 +1,8 @@
 
 import { Component, ViewEncapsulation } from '@angular/core';
 import { AppState } from './app.service';
+import  {SettingsService} from  './_common/services/setting.service';
+
 
 @Component({
   selector: 'app',
