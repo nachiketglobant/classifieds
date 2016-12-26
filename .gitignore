@@ -9,3 +9,5 @@
 /Application/Server/ClassifiedAPI/Classifieds.Search.BusinessEntities/obj/Debug
 /Application/Server/ClassifiedAPI/Classifieds.SearchAPI.Tests/bin/Debug
 /Application/Server/ClassifiedAPI/Classifieds.SearchAPI.Tests/obj/Debug
+/Application/Server/ClassifiedAPI/Classifieds.ListingsAPI/bin
+/Application/Server/ClassifiedAPI/Classifieds.SearchAPI.Tests/Classifieds.SearchAPI.Tests.csproj.user
