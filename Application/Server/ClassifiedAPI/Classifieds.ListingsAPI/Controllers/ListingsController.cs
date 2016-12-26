@@ -163,5 +163,17 @@ namespace Classifieds.ListingsAPI.Controllers
             response = Request.CreateResponse<IEnumerable<string>>(HttpStatusCode.BadRequest, errors);
             return response;
         }
+
+        public List<Listing> GetTopListings(int noOfRecords=10)
+        {
+            try
+            {
+                return _listingService.GetTopListings(noOfRecords);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

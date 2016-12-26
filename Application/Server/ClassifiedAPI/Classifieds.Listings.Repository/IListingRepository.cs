@@ -11,5 +11,6 @@ namespace Classifieds.Listings.Repository
         Listing Add(Listing listObject);
         Listing Update(string id, Listing listObject);
         void Delete(string id);
+        List<Listing> GetTopListings(int noOfRecords);
     }
 }

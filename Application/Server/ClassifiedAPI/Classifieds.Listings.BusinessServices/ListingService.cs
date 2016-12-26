@@ -99,5 +99,17 @@ namespace Classifieds.Listings.BusinessServices
                 throw ex;
             }
         }
+
+        public List<Listing> GetTopListings(int noOfRecords)
+        {
+            try
+            {
+               return _listingRepository.GetTopListings(noOfRecords);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

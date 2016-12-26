@@ -2,6 +2,8 @@
 using MongoDB.Driver;
 using NLog;
 using System.Configuration;
+using System.Diagnostics;
+using System.Reflection;
 
 namespace Classifieds.NLog.MongoDB
 {
@@ -12,13 +14,13 @@ namespace Classifieds.NLog.MongoDB
         NLog.MongoDB.MongoRepository objnlogmongo =
                new NLog.MongoDB.MongoRepository(MongoServerSettings.FromUrl(
                    new MongoUrl(ConfigurationManager.ConnectionStrings["SearchDBConnectionString"].ConnectionString)), ConfigurationManager.AppSettings["Logging"]);
-
-        void ILogger.Log(Exception ex)
+        void ILogger.Log(Exception ex,string userId)
         {
-            string LoggerName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
-            var stacktrace = ex.StackTrace.ToString();
-            LogEventInfo eventdata = new LogEventInfo(LogLevel.Error, LoggerName, null, stacktrace, null, ex);
+            string LoggerName = ConfigurationManager.AppSettings["Logging"].ToString();
+            LogEventInfo eventdata = new LogEventInfo(LogLevel.Error, LoggerName, null, ex.Message, null, ex);
             eventdata.TimeStamp = DateTime.Now;
+            eventdata.Properties["stacktrace"] = ex.StackTrace.ToString();
+            eventdata.Properties["UserId"] = userId;
             objnlogmongo.Insert(eventdata);
         }
     }

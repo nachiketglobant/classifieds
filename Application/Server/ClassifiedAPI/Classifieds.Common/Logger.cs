@@ -10,9 +10,9 @@ namespace Classifieds.Common
             _logger = new Classifieds.NLog.MongoDB.Logger();
         }
 
-        public Exception Log(Exception ex)
+        public Exception Log(Exception ex, string userId)
         {
-            _logger.Log(ex);
+            _logger.Log(ex, userId);
             return ex;
         }
     }

@@ -11,5 +11,6 @@ namespace Classifieds.Listings.BusinessServices
         Listing CreateListing(Listing listObject);
         Listing UpdateListing(string id, Listing listObject);
         void DeleteListing(string id);
+        List<Listing> GetTopListings(int noOfRecords);
     }
 }

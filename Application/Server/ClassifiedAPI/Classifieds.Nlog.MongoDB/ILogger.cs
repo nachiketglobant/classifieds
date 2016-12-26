@@ -4,6 +4,6 @@ namespace Classifieds.NLog.MongoDB
 {
     public interface ILogger
     {
-        void Log(Exception ex);
+        void Log(Exception ex, string userId);
     }
 }

@@ -185,5 +185,21 @@ namespace Classifieds.Listings.Repository
                 throw ex;
             }
         }
+
+        public List<Listing> GetTopListings(int noOfRecords)
+        {
+            try
+            {
+             
+                SortByBuilder sbb = new SortByBuilder();
+                sbb.Descending("_id");
+                var result = this.classifieds.FindAllAs<Listing>().SetSortOrder(sbb).SetLimit(noOfRecords);
+                return result.ToList();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
