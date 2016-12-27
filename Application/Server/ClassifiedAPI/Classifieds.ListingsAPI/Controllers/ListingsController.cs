@@ -1,4 +1,5 @@
-﻿using Classifieds.Listings.BusinessEntities;
+﻿using Classifieds.Common;
+using Classifieds.Listings.BusinessEntities;
 using Classifieds.Listings.BusinessServices;
 using System;
 using System.Collections.Generic;
@@ -11,19 +12,22 @@ namespace Classifieds.ListingsAPI.Controllers
 {
     public class ListingsController : ApiController
     {
+        #region Private Variable
         private IListingService _listingService;
+        private ILogger _logger;
+        #endregion
 
-        public ListingsController(IListingService listingService)
+        #region Constructor
+        /// <summary>
+        /// The class constructor. </summary>
+        public ListingsController(IListingService listingService, ILogger logger)
         {
             _listingService = listingService;
+            _logger = logger;
         }
+        #endregion
 
-        public string Get()
-        {
-            return "Hi Classifieds";
-        }
-
-        /// <summary>
+       /// <summary>
         /// Returns the listing for given id
         /// </summary>
         /// <param name="id">listing id</param>
@@ -37,7 +41,7 @@ namespace Classifieds.ListingsAPI.Controllers
             catch (Exception ex)
             {
                 //log exception
-                throw ex;
+                throw _logger.Log(ex, "Globant/User");
             }
 
         }
@@ -55,7 +59,8 @@ namespace Classifieds.ListingsAPI.Controllers
             }
             catch (Exception ex)
             {
-                throw ex;
+                //log exception
+                throw _logger.Log(ex, "Globant/User");
             }
         }
 
@@ -73,34 +78,26 @@ namespace Classifieds.ListingsAPI.Controllers
             catch (Exception ex)
             {
                 //log exception
-                throw ex;
+                throw _logger.Log(ex, "Globant/User");
             }
         }
 
         public HttpResponseMessage Post(Listing listingObj)
         {
             HttpResponseMessage result = null;
-
-            if (ModelState.IsValid)
+            try
             {
-                try
-                {
-                    var Classified = _listingService.CreateListing(listingObj);
-                    result = Request.CreateResponse<Listing>(HttpStatusCode.Created, Classified);
-                    string newItemURL = Url.Link("Listings", new { id = Classified._id });
-                    result.Headers.Location = new Uri(newItemURL);
-                }
-                catch (Exception ex)
-                {
-                    //log exception //Trace.TraceError(ex.Message, ex);
-                    result = Request.CreateResponse<string>(HttpStatusCode.InternalServerError, ex.Message);
-                }
+                var Classified = _listingService.CreateListing(listingObj);
+                result = Request.CreateResponse<Listing>(HttpStatusCode.Created, Classified);
+                string newItemURL = Url.Link("Listings", new { id = Classified._id });
+                result.Headers.Location = new Uri(newItemURL);
             }
-            else
+            catch (Exception ex)
             {
-                result = GetBadRequestResponse();
+                result = Request.CreateResponse<string>(HttpStatusCode.InternalServerError, ex.Message);
+                //log exception
+                throw _logger.Log(ex, "Globant/User");
             }
-
             return result;
         }
 
@@ -108,23 +105,16 @@ namespace Classifieds.ListingsAPI.Controllers
         {
             HttpResponseMessage result = null;
 
-            if (ModelState.IsValid)
+            try
             {
-                try
-                {
-                   var Classified = _listingService.UpdateListing(id, value);
-                    result = Request.CreateResponse<Listing>(HttpStatusCode.Accepted, Classified);
-                    //result = Request.CreateResponse(HttpStatusCode.NoContent);
-                }
-                catch (Exception ex)
-                {
-                    //Trace.TraceError(ex.Message, ex);
-                    result = Request.CreateResponse<string>(HttpStatusCode.InternalServerError, ex.Message);
-                }
+                var Classified = _listingService.UpdateListing(id, value);
+                result = Request.CreateResponse<Listing>(HttpStatusCode.Accepted, Classified);
             }
-            else
+            catch (Exception ex)
             {
-                result = GetBadRequestResponse();
+                result = Request.CreateResponse<string>(HttpStatusCode.InternalServerError, ex.Message);
+                //log exception
+                throw _logger.Log(ex, "Globant/User");
             }
 
             return result;
@@ -141,8 +131,9 @@ namespace Classifieds.ListingsAPI.Controllers
             }
             catch (Exception ex)
             {
-                //Trace.TraceError(ex.Message, ex);
                 result = Request.CreateResponse<string>(HttpStatusCode.InternalServerError, ex.Message);
+                //log exception
+                throw _logger.Log(ex, "Globant/User");
             }
 
             return result;
@@ -172,7 +163,8 @@ namespace Classifieds.ListingsAPI.Controllers
             }
             catch (Exception ex)
             {
-                throw ex;
+                //log exception
+                throw _logger.Log(ex, "Globant/User");
             }
         }
     }

@@ -156,6 +156,10 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Classifieds.Common\Classifieds.Common.csproj">
+      <Project>{B67F4456-5934-4AA2-A613-3F927DAD8DCA}</Project>
+      <Name>Classifieds.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Classifieds.Listings.BusinessEntities\Classifieds.Listings.BusinessEntities.csproj">
       <Project>{1ff950d6-172e-4732-80d5-c192669f3e18}</Project>
       <Name>Classifieds.Listings.BusinessEntities</Name>

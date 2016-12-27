@@ -6,6 +6,7 @@ using System.Web.Http;
 using Classifieds.ListingsAPI.Resolver;
 using Classifieds.Listings.BusinessServices;
 using Classifieds.Listings.Repository;
+using Classifieds.Common;
 
 namespace Classifieds.ListingsAPI
 {
@@ -18,6 +19,7 @@ namespace Classifieds.ListingsAPI
             container.RegisterType<IListingService, ListingService>(new HierarchicalLifetimeManager());
             container.RegisterType<IListingRepository, ListingRepository>(new HierarchicalLifetimeManager());
             container.RegisterType<IDBRepository, DBRepository>(new HierarchicalLifetimeManager());
+            container.RegisterType<ILogger, Logger>(new HierarchicalLifetimeManager());
             config.DependencyResolver = new UnityResolver(container);
             // Web API routes
             config.MapHttpAttributeRoutes();
