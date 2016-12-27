@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
 import { HomeComponent } from './home/components/home.component';
+import { HeaderComponent } from './_common/header/components/header.component';
 
 const APP_PROVIDERS = [
   ...APP_RESOLVER_PROVIDERS,
@@ -30,7 +31,8 @@ type StoreType = {
   bootstrap: [ AppComponent ],
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    HeaderComponent
   ],
   imports: [ // import Angular's modules
     BrowserModule,
@@ -82,4 +84,3 @@ export class AppModule {
   }
 
 }
-
