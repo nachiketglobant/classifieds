@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Classifieds.Search.BusinessEntities;
+using Classifieds.Listings.BusinessEntities;
 using Classifieds.Search.Repository;
 #endregion  
 
@@ -33,7 +33,7 @@ namespace Classifieds.Search.BusinessServices
         /// </summary>
         /// <param name="searchText"></param>
         /// <returns></returns>
-        public List<Classified> FullTextSearch(string searchText)
+        public List<Listing> FullTextSearch(string searchText)
         {
             try
             {

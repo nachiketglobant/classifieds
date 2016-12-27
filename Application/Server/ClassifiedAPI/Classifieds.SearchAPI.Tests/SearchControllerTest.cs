@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using Moq;
-using Classifieds.Search.BusinessEntities;
+using Classifieds.Listings.BusinessEntities;
 using Classifieds.Search.BusinessServices;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Classifieds.Common;
@@ -23,8 +23,8 @@ namespace Classifieds.SearchAPI.Tests
 
             mockService.Setup(x => x.FullTextSearch(It.IsAny<string>()))
                 .Returns(
-                new List<Classified>
-                { new Classified
+                new List<Listing>
+                { new Listing
                     {
                         Title ="title",
                         ListingType = "ListingType",
@@ -42,7 +42,7 @@ namespace Classifieds.SearchAPI.Tests
             var controller = new SearchAPI.Controllers.SearchController(mockService.Object, logger.Object);
 
             //Act
-            List<Classified> objList = new List<Classified>();
+            List<Listing> objList = new List<Listing>();
             objList = controller.GetFullTextSearch("searchText");
 
             //Assert

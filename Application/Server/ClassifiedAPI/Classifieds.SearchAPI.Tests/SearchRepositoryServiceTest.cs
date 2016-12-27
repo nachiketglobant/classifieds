@@ -1,4 +1,4 @@
-﻿using Classifieds.Search.BusinessEntities;
+﻿using Classifieds.Listings.BusinessEntities;
 using Classifieds.Search.Repository;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
@@ -28,7 +28,7 @@ namespace Classifieds.SearchAPI.Tests
         #region Private Methods
         private void SetUpClassifields()
         {
-            var classified = new Classified()
+            var classified = new Listing()
             {
                 ListingType = "test",
                 ListingCategory = "test",
@@ -56,7 +56,7 @@ namespace Classifieds.SearchAPI.Tests
                 Photos = "test"
             };
 
-            var classifiedList = new List<Classified>();
+            var classifiedList = new List<Listing>();
             classifiedList.Add(classified);
             //_moqAppManager.Setup(x => x.FullTextSearch(It.IsAny<string>())).Returns(classifiedList);
 
@@ -86,7 +86,7 @@ namespace Classifieds.SearchAPI.Tests
             //Assert
             Assert.IsNotNull(result);
             Assert.AreEqual(result.Count, 0);
-            Assert.IsInstanceOfType(result, typeof(IList<Classified>));
+            Assert.IsInstanceOfType(result, typeof(IList<Listing>));
         }
 
         [TestMethod]
