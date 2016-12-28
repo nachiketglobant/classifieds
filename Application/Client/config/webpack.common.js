@@ -146,11 +146,15 @@ module.exports = function (options) {
           test: /\.(jpg|png|gif)$/,
           use: 'file-loader'
         },
-        { test: /\.woff$/,   use: "url-loader?limit=10000&minetype=application/font-woff" },
-        { test: /\.ttf$/,    use: "file-loader" },
-        { test: /\.eot$/,    use: "file-loader" },
-        { test: /\.svg$/,    use: "file-loader" },
+        // { test: /\.woff$/,   loader: "url-loader?limit=10000&minetype=application/font-woff" },
+        // { test: /\.ttf$/,    loader: "file-loader" },
+        // { test: /\.eot$/,    loader: "file-loader" },
+        // { test: /\.svg$/,    loader: "file-loader" },
         {
+          test   : /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
+          loader : 'file-loader'
+        },
+       {
           test: /\.scss$/,
           loaders: ["style-loader", "css-loader", "sass-loader"]
         }
