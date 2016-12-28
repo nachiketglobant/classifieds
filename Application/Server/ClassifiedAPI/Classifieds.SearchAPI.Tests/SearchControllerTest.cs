@@ -10,10 +10,17 @@ using Classifieds.Common;
 
 namespace Classifieds.SearchAPI.Tests
 {
+    /// <summary>
+    /// SearchController test class 
+    /// Moq Unit test for Public Methods of SearchController
+    /// </summary>
     [TestClass]
     public class SearchControllerTest
     {
         #region Test Methods
+        /// <summary>
+        /// Controller_FreeTextSearchTest Unit Test positive scenario by any string
+        /// </summary>
         [TestMethod]
         public void Controller_FreeTextSearchTest()
         {
@@ -42,14 +49,17 @@ namespace Classifieds.SearchAPI.Tests
             var controller = new SearchAPI.Controllers.SearchController(mockService.Object, logger.Object);
 
             //Act
-            List<Listing> objList = new List<Listing>();
-            objList = controller.GetFullTextSearch("searchText");
+            List<Listing> list = new List<Listing>();
+            list = controller.GetFullTextSearch("searchText");
 
             //Assert
-            Assert.AreEqual(objList.Count, 1);
-            Assert.AreEqual(objList[0].Title, "title");
+            Assert.AreEqual(list.Count, 1);
+            Assert.AreEqual(list[0].Title, "title");
         }
 
+        /// <summary>
+        /// Controller_FreeTextSearch_ThrowsException Test Exception.
+        /// </summary>
         [TestMethod]
         [ExpectedException(typeof(NullReferenceException))]
         public void Controller_FreeTextSearch_ThrowsException()
@@ -58,7 +68,7 @@ namespace Classifieds.SearchAPI.Tests
             var logger = new Mock<ILogger>();
             logger.Setup(x => x.Log(It.IsAny<Exception>(),It.IsAny<string>()));
             var controller = new SearchAPI.Controllers.SearchController(mockService.Object, logger.Object);
-            var result = controller.GetFullTextSearch(null);
+            var classified = controller.GetFullTextSearch(null);
         }
         #endregion
     }

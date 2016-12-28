@@ -11,10 +11,10 @@ namespace Classifieds.Search.Repository
 {
     public class SearchRepository : DBRepository, ISearchRepository
     {
-        private string _ClassifiedsCollection = ConfigurationManager.AppSettings["Collection"];
+        private readonly string _classifiedsCollection = ConfigurationManager.AppSettings["Collection"];
         MongoCollection<Listing> classifieds
         {
-            get { return Database.GetCollection<Listing>(_ClassifiedsCollection); }
+            get { return Database.GetCollection<Listing>(_classifiedsCollection); }
         }
 
         public SearchRepository()

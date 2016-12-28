@@ -3,9 +3,6 @@ using Classifieds.Search.Repository;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Classifieds.SearchAPI.Tests
 {
@@ -13,8 +10,7 @@ namespace Classifieds.SearchAPI.Tests
    public class SearchRepositoryServiceTest
     {
         #region Private Variables        
-        private ISearchRepository _searchRepo;
-        //private IDBRepository _dbRepository;
+        private readonly ISearchRepository _searchRepo;
         #endregion
 
         #region Initialization
@@ -30,30 +26,30 @@ namespace Classifieds.SearchAPI.Tests
         {
             var classified = new Listing()
             {
-                ListingType = "test",
-                ListingCategory = "test",
-                SubCategory = "test",
-                Title = "test",
-                Address = "AAA",
+                ListingType = "ListingType",
+                ListingCategory = "ListingCategory",
+                SubCategory = "SubCategory",
+                Title = "Title",
+                Address = "Address",
                 ContactNo = "1111",
                 ContactName = "AAA AAA",
                 Configuration = "NA",
                 Details = "for rupees 20,000,000,000",
-                Brand = "test",
+                Brand = "Brand",
                 Price = 123,
                 YearOfPurchase = 123,
-                ExpiryDate = "test",
-                Status = "test",
-                Submittedby = "test",
-                SubmittedDate = "test",
-                IdealFor = "test",
-                Furnished = "test",
-                FuelType = "test",
+                ExpiryDate = "ExpiryDate",
+                Status = "Status",
+                Submittedby = "Submittedby",
+                SubmittedDate = "20-DEC-2016",
+                IdealFor = "IdealFor",
+                Furnished = "Furnished",
+                FuelType = "FuelType",
                 KmDriven = 123,
                 YearofMake = 123,
-                Dimensions = "test",
-                TypeofUse = "test",
-                Photos = "test"
+                Dimensions = "Dimensions",
+                TypeofUse = "TypeofUse",
+                Photos = "Photos"
             };
 
             var classifiedList = new List<Listing>();

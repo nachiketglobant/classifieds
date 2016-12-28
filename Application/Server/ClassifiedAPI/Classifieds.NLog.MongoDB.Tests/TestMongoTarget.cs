@@ -9,7 +9,6 @@ using NUnit.Framework;
 using FluentAssertions;
 using Classifieds.NLog.MongoDB;
 using NLog;
-using NLog.MongoDB;
 
 namespace Classifieds.NLog.MongoDB.Tests
 {
