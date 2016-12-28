@@ -1,3 +1,5 @@
+@import url('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css');
+
 $white-color: #ffffff;
 $darkblue-color: #495574;
 $green-color: #c1d72f;
@@ -68,11 +70,11 @@ $arvo-regular:'ArvoRegular';
 
 @font-face {
   font-family: 'icomoon';
-  src:  url('/src/assets/fonts/icon-fonts/icomoon.eot?2now9z');
-  src:  url('/src/assets/fonts/icon-fonts/icomoon.eot?2now9z#iefix') format('embedded-opentype'),
-  url('/src/assets/fonts/icon-fonts/icomoon.ttf?2now9z') format('truetype'),
-  url('/src/assets/fonts/icon-fonts/icomoon.woff?2now9z') format('woff'),
-  url('/src/assets/fonts/icon-fonts/icomoon.svg?2now9z#icomoon') format('svg');
+  src:  url('/assets/fonts/icon-fonts/icomoon.eot?2now9z');
+  src:  url('/assets/fonts/icon-fonts/icomoon.eot?2now9z#iefix') format('embedded-opentype'),
+  url('/assets/fonts/icon-fonts/icomoon.ttf?2now9z') format('truetype'),
+  url('/assets/fonts/icon-fonts/icomoon.woff?2now9z') format('woff'),
+  url('/assets/fonts/icon-fonts/icomoon.svg?2now9z#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }

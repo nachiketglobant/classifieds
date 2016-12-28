@@ -1,16 +1,4 @@
-$white-color: #ffffff;
-$darkblue-color: #495574;
-$green-color: #c1d72f;
-$primary-background-color: #f7f8f9; //navCardbg
-$primary-text-color: #9fa3a7; //card text
-$primary-button-text-color: #525252;
-$primary-button-border-color: #d8d8d8;
-$active-button-border-color: #c1d731;
-$active-button-text-color: #242424;
-$light-grey-border: #f4f4f4;
-$light-grey-button-border: #d8d8d8;
-$heading-color:#212121;
-$red-color:#f9593a;
+@import "../../common.scss";
 
 h2.category{
 	display: none;
@@ -106,7 +94,7 @@ h2.category{
 	}
 }
 .create-container{
-	/* background: url("images/icon.png") no-repeat $primary-background-color 45% 35%; */
+	 background: url("../../../assets/img/icon.png") no-repeat $primary-background-color 45% 35%;
 	text-align: center;
 	h2{
 		font-size:2.25em;

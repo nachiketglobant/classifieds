@@ -1,59 +1,65 @@
-@import "../../../home/styles/home.component";
+@import "../../../common.scss";
 
-nav.navbar-inverse{
-  background-color: $darkblue-color;
-  border:none;
-  border-radius: 0;
-  padding: 25px 42px;
-  .navbar-header{
-    .navbar-brand{
-      height:auto;
-      padding: 0;
-    }
-    .search-btn{
-      display: none;
-    }
+nav{
+  &.navbar{
+    margin-bottom: 0;
   }
-  .collapse{
-    ul.nav{
-      li{
-        color:$white-color;
-        button.green-button{
-          background-color: $green-color;
-          color: $darkblue-color;
-          border-radius: 10px;
-          padding: 5px 15px 5px 10px;
-          font-family: 'Open Sans';
-          font-weight: bold;
-          font-size: 0.714em;
-          margin-right: 20px;
-          border:none;
-          text-transform: uppercase;
-          letter-spacing: 2px;
-          span{
-            vertical-align: middle;
-          }
-        }
-        a{
-          padding: 0;
-          .textwishlist{
+  &.navbar-inverse{
+    background-color: $darkblue-color;
+    border:none;
+    border-radius: 0;
+    padding: 25px 42px;
+    .navbar-header{
+      .navbar-brand{
+        height:auto;
+        padding: 0;
+      }
+      .search-btn{
+        display: none;
+      }
+    }
+    .collapse{
+      ul.nav{
+        li{
+          color:$white-color;
+          button.green-button{
+            background-color: $green-color;
+            color: $darkblue-color;
+            border-radius: 10px;
+            padding: 5px 15px 5px 10px;
+            font-family: 'Open Sans';
+            font-weight: bold;
+            font-size: 0.714em;
+            margin-right: 20px;
+            border:none;
             text-transform: uppercase;
-            color:$white-color;
+            letter-spacing: 2px;
+            span{
+              vertical-align: middle;
+            }
           }
-          .wishlist{
-            padding:5px 12px 0 0;
-            color: $red-color;
+          a{
+            padding: 0;
+            .textwishlist{
+              text-transform: uppercase;
+              color:$white-color;
+            }
+            .wishlist{
+              padding:5px 12px 0 0;
+              color: $red-color;
+            }
           }
-        }
-        .menu-btn{
-          padding:5px 0 0 30px;
-          background: none;
-          border: none;
+          .menu-btn{
+            padding:5px 0 0 30px;
+            background: none;
+            border: none;
+          }
         }
       }
     }
   }
 }
+
 
 @media (min-width: 320px) and (max-width: 460px){
   nav.navbar-inverse{
