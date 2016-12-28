@@ -2,17 +2,17 @@ import { Component } from '@angular/core';
 import { AppState } from '../../app.service';
 import {SettingsService} from '../../_common/services/setting.service';
 
-let styles = require('../styles/home.component.scss').toString();
-let tpls = require('../tpls/home.component.html').toString();
+let styles = require('../styles/banner.component.scss').toString();
+let tpls = require('../tpls/banner.component.html').toString();
 
 @Component({
-  selector: 'home',
+  selector: 'banner',
   styles : [ styles ],
   providers:[SettingsService],
   template : tpls
 })
 
-export class HomeComponent {
+export class BannerComponent {
   private settings : any ;
   private baseUrl : any ;
   localState = { value: '' };
@@ -20,7 +20,6 @@ export class HomeComponent {
 
   ngOnInit() {
     this.baseUrl=this._settingsService.getBaseUrl();
-    console.log('in the home component');
   }
 
   submitState(value: string) {

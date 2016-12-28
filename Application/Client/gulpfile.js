@@ -8,9 +8,6 @@ var gulp = require('gulp'),
     chalk = require('chalk'),
     jsone = require("gulp-json-editor");;
 
-gulp.task('default',function () {
-  console.log('Hello Gulp!');
-});
 
 gulp.task('set-environment', function () {
   var env = (argv.production) ? 'prod' : (argv.test) ? 'qa' : 'dev';
