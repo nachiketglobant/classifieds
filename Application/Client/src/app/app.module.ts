@@ -12,6 +12,7 @@ import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
 import { HomeComponent } from './home/components/home.component';
 import { HeaderComponent } from './_common/header/components/header.component';
+import { CardListComponent } from './card-list/components/card-list.component';
 
 const APP_PROVIDERS = [
   ...APP_RESOLVER_PROVIDERS,
@@ -32,7 +33,8 @@ type StoreType = {
   declarations: [
     AppComponent,
     HomeComponent,
-    HeaderComponent
+    HeaderComponent,
+    CardListComponent
   ],
   imports: [ // import Angular's modules
     BrowserModule,
