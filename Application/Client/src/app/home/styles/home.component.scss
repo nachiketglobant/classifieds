@@ -20,7 +20,7 @@ body{
   line-height: 1;
 }
 
-@font-face {
+/*@font-face {
   font-family: 'ArvoItalic';
   src: url('fonts/ArvoItalic.eot');
   src: url('fonts/ArvoItalic.eot') format('embedded-opentype'),
@@ -58,7 +58,7 @@ body{
   url('fonts/ArvoRegular.woff') format('woff'),
   url('fonts/ArvoRegular.ttf') format('truetype'),
   url('fonts/ArvoRegular.svg#ArvoRegular') format('svg');
-}
+}*/
 
 $arvo-italic: 'ArvoItalic';
 $arvo-bold:'ArvoBold';
@@ -109,9 +109,9 @@ $arvo-regular:'ArvoRegular';
   content: "\e904";
 }
 
-.spriteimage{
+/*.spriteimage{
   background: url("images/banner-css-sprite.png") no-repeat;
-}
+}*/
 
 .electronicIcon{
   width: 91px;
