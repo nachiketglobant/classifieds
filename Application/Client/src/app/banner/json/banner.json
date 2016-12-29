@@ -1,0 +1,124 @@
+{
+  "status": "success",
+  "message": null,
+  "details": {
+    "electronics": [
+      {
+        "id": 1,
+        "name": "mobile"
+      },
+      {
+        "id": 2,
+        "name": "Laptop and desktop's"
+      },
+      {
+        "id": 3,
+        "name": "Kitchen Appliances"
+      },
+      {
+        "id": 4,
+        "name": "Home Appliances"
+      },
+      {
+        "id": 5,
+        "name": "Accessories"
+      },
+      {
+        "id": 6,
+        "name": "Others"
+      }
+    ],
+    "Housing": [
+      {
+        "id": 1,
+        "name": "Studio Apartments"
+      },
+      {
+        "id": 2,
+        "name": "Double Sharing"
+      },
+      {
+        "id": 3,
+        "name": "Single Room"
+      },
+      {
+        "id": 4,
+        "name": "Double Bedroom"
+      },
+      {
+        "id": 5,
+        "name": "Fully Furnished"
+      },
+      {
+        "id": 6,
+        "name": "Semi Furnished"
+      },
+      {
+        "id": 7,
+        "name": "Luxury Apartments"
+      }
+    ],
+    "Automotive":[
+      {
+        "id":1,
+        "name":"Cars"
+      },
+      {
+        "id":2,
+        "name":"Motorcycles"
+      },
+      {
+        "id":3,
+        "name":"Scooters"
+      },
+      {
+        "id":4,
+        "name":"Bicycles"
+      },
+      {
+        "id":5,
+        "name":"Accessories"
+      }
+    ],
+    "Furniture":[
+      {
+        "id":1,
+        "name":"Beds and Sofas"
+      },
+      {
+        "id":2,
+        "name":"Table and Chairs"
+      },
+      {
+        "id":3,
+        "name":"Wardrobes and Storage"
+      },
+      {
+        "id":4,
+        "name":"Home Decor and Garden"
+      }
+    ],
+    "Assorted":[
+      {
+        "id":1,
+        "name":"Books and Stationary"
+      },
+      {
+        "id":2,
+        "name":"Sports Equipment"
+      },
+      {
+        "id":3,
+        "name":"Musical Instrument"
+      },
+      {
+        "id":4,
+        "name":"Apparel and Accessories"
+      },
+      {
+        "id":5,
+        "name":"Games and Entertainment"
+      }
+    ]
+  }
+}
