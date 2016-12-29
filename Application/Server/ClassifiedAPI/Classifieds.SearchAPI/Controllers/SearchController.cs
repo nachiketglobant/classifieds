@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
-using Classifieds.Search.BusinessEntities;
+using Classifieds.Listings.BusinessEntities;
 using Classifieds.Search.BusinessServices;
 using Classifieds.Common;
 #endregion  
@@ -22,13 +22,16 @@ namespace Classifieds.SearchAPI.Controllers
     public class SearchController : ApiController
     {
         #region Private Variable
-        private ISearchService _searchService;
-        private ILogger _logger;
-        #endregion 
+        private readonly ISearchService _searchService;
+        private readonly ILogger _logger;
+        #endregion
 
         #region Constructor
         /// <summary>
-        /// The class constructor. </summary>
+        /// 
+        /// </summary>
+        /// <param name="searchService"></param>
+        /// <param name="logger"></param>
         public SearchController(ISearchService searchService,ILogger logger)
         {
             _searchService = searchService;
@@ -42,12 +45,11 @@ namespace Classifieds.SearchAPI.Controllers
         /// </summary>
         /// <param name="searchText"></param>
         /// <returns>SearchResult</returns>
-        public List<Classified> GetFullTextSearch(string searchText)
+        public List<Listing> GetFullTextSearch(string searchText)
         {
             try
             {
-                //return _searchService.FullTextSearch(searchText).ToList();
-                throw new NullReferenceException();
+                return _searchService.FullTextSearch(searchText).ToList();
             }
             catch (Exception ex)
             {
