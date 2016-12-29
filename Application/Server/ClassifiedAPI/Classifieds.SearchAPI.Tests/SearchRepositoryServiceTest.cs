@@ -10,7 +10,7 @@ namespace Classifieds.SearchAPI.Tests
    public class SearchRepositoryServiceTest
     {
         #region Private Variables        
-        private readonly ISearchRepository _searchRepo;
+        private ISearchRepository _searchRepo;
         #endregion
 
         #region Initialization
