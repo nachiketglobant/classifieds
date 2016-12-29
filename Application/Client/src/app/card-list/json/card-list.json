@@ -1,0 +1,38 @@
+{
+  "status": "success",
+  "message": null,
+  "details": {
+    "electronics": [
+      {
+        "id": 1,
+        "name": "Mobile",
+        "description":"sfhksjfksfhksfkshfksfh",
+        "date":"12-12-2016",
+        "price":"9000rs"
+      },
+      {
+        "id": 2,
+        "name": "Laptop and Desktop",
+        "description":"sfhksjfksfhksfkshfksfh",
+        "date":"13-12-2016",
+        "price":"9000rs"
+      }
+    ],
+    "Housing": [
+      {
+        "id": 1,
+        "name": "",
+        "description":"sfhksjfksfhksfkshfksfh",
+        "date":"14-12-2016",
+        "price":"9000rs"
+      },
+      {
+        "id": 2,
+        "name": "mobile",
+        "description":"sfhksjfksfhksfkshfksfh",
+        "date":"15-12-2016",
+        "price":"9000rs"
+      }
+    ],
+  }
+}
