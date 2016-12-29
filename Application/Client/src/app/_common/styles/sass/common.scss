@@ -1,0 +1,47 @@
+body{
+  background-color:$white-color;
+  font-family: 'Open Sans';
+  font-size: 14px;
+  line-height: 1;
+}
+
+//ICONS
+
+.spriteimage{
+  background: url("/assets/img/banner-css-sprite.png") no-repeat;
+}
+
+.electronicIcon{
+  width: 91px;
+  height:80px;
+  background-position:0 0;
+  display:block;
+}
+
+.housingIcon{
+  width: 78px;
+  height:80px;
+  background-position:-92px 0;
+  display:block;
+}
+
+.automotiveIcon{
+  width: 91px;
+  height:80px;
+  background-position:-171px 0;
+  display:block;
+}
+
+.furnitureIcon{
+  width: 97px;
+  height:80px;
+  background-position:-264px 0;
+  display:block;
+}
+
+.assortedIcon{
+  width: 89px;
+  height:80px;
+  background-position:-363px 0;
+  display:block;
+}
