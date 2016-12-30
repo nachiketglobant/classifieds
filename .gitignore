@@ -19,3 +19,6 @@
 /Application/Server/ClassifiedAPI/Classifieds.Listings.BusinessServices.Test
 /Application/Server/ClassifiedAPI/Classifieds.Listings.BusinessServices
 *.user
+/Application/Server/ClassifiedAPI/Classifieds.Search.BusinessServices/obj/Debug
+/Application/Server/ClassifiedAPI/Classifieds.Search.Repository/obj/Debug
+/Application/Server/ClassifiedAPI/Classifieds.SearchAPI
