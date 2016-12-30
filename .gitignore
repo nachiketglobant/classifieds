@@ -18,3 +18,4 @@
 /Application/Server/ClassifiedAPI/Classifieds.Listings.Repository
 /Application/Server/ClassifiedAPI/Classifieds.Listings.BusinessServices.Test
 /Application/Server/ClassifiedAPI/Classifieds.Listings.BusinessServices
+*.user
