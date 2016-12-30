@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 
 var settingsJson = require("app/settings.json");
 var bannerListingsJson = require("app/banner/json/banner.json");
+var cardListingsJson = require("app/card-list/json/card-list.json");
 
 @Injectable()
 export class SettingsService{
@@ -21,6 +22,11 @@ export class SettingsService{
   getBannerListingsData(){
       return bannerListingsJson.details;
   }
+
+  getCardListingsData(){
+      return cardListingsJson.categories;
+  }
+
 }
 
 

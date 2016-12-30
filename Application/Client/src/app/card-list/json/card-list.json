@@ -1,38 +1,109 @@
 {
   "status": "success",
   "message": null,
-  "details": {
-    "electronics": [
-      {
-        "id": 1,
-        "name": "Mobile",
-        "description":"sfhksjfksfhksfkshfksfh",
-        "date":"12-12-2016",
-        "price":"9000rs"
-      },
-      {
-        "id": 2,
-        "name": "Laptop and Desktop",
-        "description":"sfhksjfksfhksfkshfksfh",
-        "date":"13-12-2016",
-        "price":"9000rs"
-      }
-    ],
-    "Housing": [
-      {
-        "id": 1,
-        "name": "",
-        "description":"sfhksjfksfhksfkshfksfh",
-        "date":"14-12-2016",
-        "price":"9000rs"
-      },
-      {
-        "id": 2,
-        "name": "mobile",
-        "description":"sfhksjfksfhksfkshfksfh",
-        "date":"15-12-2016",
-        "price":"9000rs"
-      }
-    ],
-  }
+  "categories":
+  [
+    {
+      "id": 1,
+      "existingCategory":true,
+      "category":"Electronics",
+      "title":"iPhone7",
+      "img":"photo1.png",
+      "info":"Apple Inc has decided to launch the much awaited Apple Watch in the upcoming ",
+      "submittedDate":"12-10-2016",
+      "makeWish":false,
+      "price": 6000,
+      "recommend":false,
+      "largeCategory":false,
+      "smallCategory":true
+    },
+    {
+      "id": 2,
+      "existingCategory":true,
+      "category":"Electronics",
+      "title":"iPhone6",
+      "img":"photo1.png",
+      "info":"Apple Inc has decided to launch the much awaited Apple Watch in the upcoming ",
+      "submittedDate":"12-10-2016",
+      "makeWish":true,
+      "price": 6000,
+      "recommend":false,
+      "largeCategory":false,
+      "smallCategory":true
+    },
+    {
+      "id": 3,
+      "existingCategory":true,
+      "category":"Electronics",
+      "title":"iPhone5",
+      "img":"photo1.png",
+      "info":"Apple Inc has decided to launch the much awaited Apple Watch in the upcoming ",
+      "submittedDate":"12-10-2016",
+      "makeWish":false,
+      "price": 6000,
+      "recommend":true,
+      "largeCategory":false,
+      "smallCategory":true
+    },
+    {
+      "id": 4,
+      "existingCategory":true,
+      "category":"Electronics",
+      "title":"iPhone4",
+      "img":"photo2.png",
+      "info":"Apple Inc has decided to launch the much awaited Apple Watch in the upcoming ",
+      "submittedDate":"12-10-2016",
+      "makeWish":false,
+      "price": 6000,
+      "recommend":false,
+      "largeCategory":true,
+      "smallCategory":false
+    },
+    {
+      "id": 5,
+      "existingCategory":true,
+      "category":"Electronics",
+      "title":"iPhone4",
+      "img":"photo1.png",
+      "info":"Apple Inc has decided to launch the much awaited Apple Watch in the upcoming ",
+      "submittedDate":"12-10-2016",
+      "makeWish":true,
+      "price": 6000,
+      "recommend":false,
+      "largeCategory":false,
+      "smallCategory":true
+    },
+    {
+      "id": 6,
+      "existingCategory":true,
+      "category":"Electronics",
+      "title":"iPhone4",
+      "img":"photo1.png",
+      "info":"Apple Inc has decided to launch the much awaited Apple Watch in the upcoming ",
+      "submittedDate":"12-10-2016",
+      "makeWish":false,
+      "price": 6000,
+      "recommend":false,
+      "largeCategory":false,
+      "smallCategory":true
+    },
+    {
+      "id": 7,
+      "existingCategory":false
+    },
+    {
+      "id": 8,
+      "existingCategory":true,
+      "category":"Electronics",
+      "title":"iPhone4",
+      "img":"photo1.png",
+      "info":"Apple Inc has decided to launch the much awaited Apple Watch in the upcoming ",
+      "submittedDate":"12-10-2016",
+      "makeWish":false,
+      "price": 6000,
+      "recommend":false,
+      "largeCategory":false,
+      "smallCategory":true
+    }
+  ]
 }
