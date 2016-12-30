@@ -1,0 +1,12 @@
+@import "../../_common/styles/sass/style";
+
+.navbar{
+  background-color: $primary-background-color;
+  font: 0.857em $arvo-bold;
+  text-transform: uppercase;
+}
+@media (min-width: 320px) and (max-width: 460px){
+  .navbar{
+    display:none;
+  }
+}

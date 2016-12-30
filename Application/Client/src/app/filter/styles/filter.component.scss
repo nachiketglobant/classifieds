@@ -1,0 +1,37 @@
+@import "../../_common/styles/sass/style";
+
+.navbar{
+  .nav.navbar-nav.filter{
+    float: right;
+    li{
+      a{
+        color: $primary-text-color;
+        border-radius:15px;
+        padding: 5px 20px 5px 20px;
+        margin:40px 0 40px 0;
+      }
+      a:focus{
+        border: 2px solid $green-color;
+        color: $active-button-text-color;
+        background-color: transparent;
+      }
+      a:hover{
+        border: 2px solid $green-color;
+        color: $active-button-text-color;
+        background-color: transparent;
+      }
+      a:active{
+        border: 2px solid $green-color;
+        color: $active-button-text-color;
+      }
+      .open>a:hover, .open>a:focus, .open>a.active{
+        background-color: transparent;
+      }
+      .dropdown-menu{
+        display:none;
+        margin-top:-40px;
+        border-radius:15px;
+      }
+    }
+  }
+}
