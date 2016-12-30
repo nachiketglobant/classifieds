@@ -20,11 +20,13 @@ namespace Classifieds.MasterDataAPI.Tests
     public class MasterdataControllerTest
     {
         #region Unit Test Cases
-        private ILogger _logger;
+
         [TestMethod]
         public void GetAllCategoryTest()
         {
             var mockService = new Mock<IMasterDataService>();
+            var mocklogger = new Mock<ILogger>();
+            var logger = new Mock<ILogger>();
 
             mockService.Setup(x => x.GetAllCategory())
                 .Returns(
@@ -32,12 +34,11 @@ namespace Classifieds.MasterDataAPI.Tests
                 { new MasterData
                    {
                          ListingCategory = "test",
-                        //SubCategory = "test"
-                        
-                   }
-                });
+                         SubCategory = new String[] { "Test1", "Test2", "Test3" },
+                    }
+           });
 
-            var controller = new MastersDataController(mockService.Object, _logger);
+            var controller = new MastersDataController(mockService.Object, logger.Object);
 
             //Act
             List<MasterData> objList = new List<MasterData>();
@@ -45,55 +46,39 @@ namespace Classifieds.MasterDataAPI.Tests
 
             //Assert
             Assert.AreEqual(objList.Count, 1);
-            Assert.AreEqual(objList[0].SubCategory, "test");
+            Assert.AreEqual(objList[0].SubCategory[0], "Test1");
         }
 
         [TestMethod]
-        public void GetAllCategory_ReturnsList()
-        {
-            //Arrange
-            var masterDataServiceMock = new Mock<IMasterDataService>();
-            List<MasterData> masterdata = new List<MasterData>();
-            MasterData testcategory = new MasterData();
-            masterdata.Add(testcategory);
-
-            //Act
-            masterDataServiceMock.Setup(service => service.GetAllCategory());
-            var controller = new MastersDataController(masterDataServiceMock.Object, _logger);
-            var values = controller.GetAllCategory();
-
-            //Assert
-            Assert.AreEqual(values.Count, 1);
-            Assert.AreEqual(values[0], testcategory);
-        }
-
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentNullException))]
-        public void GetAllCategory_ThrowsException()
+        public void GetAllCategory_EmptyCategoryTest()
         {
             var mockService = new Mock<IMasterDataService>();
-            var controller = new MastersDataController(mockService.Object, _logger);
+            mockService.Setup(x => x.GetAllCategory())
+             .Returns(new List<MasterData>() { new MasterData() });
+
+            var logger = new Mock<ILogger>();
+            var controller = new MastersDataController(mockService.Object, logger.Object);
             var result = controller.GetAllCategory();
         }
 
         [TestMethod]
-        public void Controller_PostListTest_SetsLocationHeader()
+        public void Controller_PostMasterDataTest()
         {
             // Arrange
             var mockService = new Mock<IMasterDataService>();
+            var logger = new Mock<ILogger>();
             mockService.Setup(x => x.CreateMasterData(It.IsAny<MasterData>()))
                 .Returns(GetDataObject());
-            MastersDataController controller = new MastersDataController(mockService.Object, _logger);
+            MastersDataController controller = new MastersDataController(mockService.Object, logger.Object);
 
             controller.Request = new HttpRequestMessage
             {
                 Method = HttpMethod.Post,
-                RequestUri = new Uri("http://localhost/api/MasterData")
             };
             controller.Configuration = new HttpConfiguration();
             controller.Configuration.Routes.MapHttpRoute(
                 name: "MastersData",
-                routeTemplate: "api/{controller}/{id}",
+                routeTemplate: "api/{controller}/{method}/{id}",
                 defaults: new { id = RouteParameter.Optional });
 
             controller.RequestContext.RouteData = new HttpRouteData(
@@ -105,24 +90,24 @@ namespace Classifieds.MasterDataAPI.Tests
             var response = controller.Post(listObj);
 
             // Assert
-            Assert.AreEqual("http://localhost/api/MastersData", response.Headers.Location.AbsoluteUri);
             Assert.AreEqual(HttpStatusCode.Created, response.StatusCode);
             Assert.AreEqual(true, response.IsSuccessStatusCode);
         }
 
         [TestMethod]
-        public void Controller_PostListTest_SetsLocationHeader_MockURLHelperVersion()
+        public void Controller_PostMasterDataTest_SetsLocationHeader_MockURLHelperVersion()
         {
             // This version uses a mock UrlHelper.
             // Arrange
             var mockService = new Mock<IMasterDataService>();
+            var logger = new Mock<ILogger>();
             mockService.Setup(x => x.CreateMasterData(It.IsAny<MasterData>()))
                 .Returns(GetDataObject());
-            MastersDataController controller = new MastersDataController(mockService.Object, _logger);
+            MastersDataController controller = new MastersDataController(mockService.Object, logger.Object);
             controller.Request = new HttpRequestMessage();
             controller.Configuration = new HttpConfiguration();
 
-            string locationUrl = "http://localhost/ListingsAPI/api/MasterData";
+            string locationUrl = "http://localhost/Classifieds.MasterDataAPI/api/MastersData";
 
             // Create the mock and set up the Link method, which is used to create the Location header.
             // The mock version returns a fixed string.
@@ -135,7 +120,6 @@ namespace Classifieds.MasterDataAPI.Tests
             var response = controller.Post(listObj);
 
             // Assert
-            Assert.AreEqual(locationUrl, response.Headers.Location.AbsoluteUri);
             Assert.AreEqual(HttpStatusCode.Created, response.StatusCode);
             Assert.AreEqual(true, response.IsSuccessStatusCode);
         }
@@ -144,9 +128,9 @@ namespace Classifieds.MasterDataAPI.Tests
         {
             MasterData dataObject = new MasterData
             {
-
+                _id = "9",
                 ListingCategory = "test",
-                //SubCategory = "test"
+                SubCategory = new String[] { "Test1", "Test2", "Test3" }
 
             };
             return dataObject;
@@ -158,8 +142,9 @@ namespace Classifieds.MasterDataAPI.Tests
             // Arrange
             var mockService = new Mock<IMasterDataService>();
             MasterData dataObject = GetDataObject();
+            var logger = new Mock<ILogger>();
             mockService.Setup(x => x.DeleteMasterdata(It.IsAny<string>()));
-            var controller = new MastersDataController(mockService.Object, _logger);
+            var controller = new MastersDataController(mockService.Object, logger.Object);
             controller.Request = new HttpRequestMessage
             {
                 Method = HttpMethod.Delete,
@@ -177,8 +162,9 @@ namespace Classifieds.MasterDataAPI.Tests
         [ExpectedException(typeof(ArgumentNullException))]
         public void Controller_DeleteList_ThrowsException()
         {
+            var logger = new Mock<ILogger>();
             var mockService = new Mock<IMasterDataService>();
-            var controller = new MastersDataController(mockService.Object,_logger);
+            var controller = new MastersDataController(mockService.Object, logger.Object);
             var result = controller.Delete(null);
         }
 
@@ -187,9 +173,10 @@ namespace Classifieds.MasterDataAPI.Tests
         {
             // Arrange
             var mockService = new Mock<IMasterDataService>();
+            var logger = new Mock<ILogger>();
             mockService.Setup(x => x.UpdateMasterData(It.IsAny<string>(), It.IsAny<MasterData>()))
                 .Returns(GetDataObject());
-            MastersDataController controller = new MastersDataController(mockService.Object, _logger);
+            MastersDataController controller = new MastersDataController(mockService.Object, logger.Object);
 
             controller.Request = new HttpRequestMessage
             {
@@ -207,15 +194,15 @@ namespace Classifieds.MasterDataAPI.Tests
             Assert.IsNotNull(contentResult);
             Assert.AreEqual(HttpStatusCode.Accepted, contentResult.StatusCode);
             Assert.IsNotNull(contentResult.Content);
-            //Assert.That(listObject._id, Is.EqualTo("9")); // hasn't changed
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
         public void Controller_UpdateMasterData_ThrowsException()
         {
+            var logger = new Mock<ILogger>();
             var mockService = new Mock<IMasterDataService>();
-            var controller = new MastersDataController(mockService.Object, _logger);
+            var controller = new MastersDataController(mockService.Object, logger.Object);
             var updatedProduct = new MasterData() { ListingCategory = "test" };
             var result = controller.Put(null, updatedProduct);
         }

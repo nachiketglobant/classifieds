@@ -46,12 +46,12 @@ namespace Classifieds.SearchAPI.Controllers
         {
             try
             {
-                //return _searchService.FullTextSearch(searchText).ToList();
-                throw new NullReferenceException();
+                return _searchService.FullTextSearch(searchText).ToList();
+                //throw new NullReferenceException();
             }
             catch (Exception ex)
             {
-                //ToDo UseName is hardcoded
+                //ToDo seName is hardcoded
                 throw _logger.Log(ex,"Globant/User");
             }
 

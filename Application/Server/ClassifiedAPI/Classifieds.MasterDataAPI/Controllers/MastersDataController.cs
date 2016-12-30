@@ -19,11 +19,17 @@ namespace Classifieds.MasterDataAPI.Controllers
 
         #endregion
 
+        #region MastersDataController
+
         public MastersDataController(IMasterDataService masterdataService, ILogger logger)
         {
             _masterDataService = masterdataService;
             _logger = logger;
         }
+
+        #endregion
+
+        #region GetAllCategory
 
         [HttpGet]
         public List<MasterData> GetAllCategory()
@@ -40,6 +46,10 @@ namespace Classifieds.MasterDataAPI.Controllers
             }
         }
 
+        #endregion
+
+        #region PostCategory
+
         [HttpPost]
         public HttpResponseMessage Post(MasterData masterDataObj)
         {
@@ -49,10 +59,8 @@ namespace Classifieds.MasterDataAPI.Controllers
             {
                 try
                 {
-                    var Classified = _masterDataService.CreateMasterData(masterDataObj);
-                    result = Request.CreateResponse<MasterData>(HttpStatusCode.Created, Classified);
-                    string newItemURL = Url.Link("MasterData", new { id = Classified._id });
-                    result.Headers.Location = new Uri(newItemURL);
+                    var classified = _masterDataService.CreateMasterData(masterDataObj);
+                    result = Request.CreateResponse<MasterData>(HttpStatusCode.Created, classified);
                 }
                 catch (Exception ex)
                 {
@@ -66,6 +74,10 @@ namespace Classifieds.MasterDataAPI.Controllers
 
             return result;
         }
+
+        #endregion
+
+        #region UpdateCategory
 
         public HttpResponseMessage Put(string id, MasterData value)
         {
@@ -75,13 +87,12 @@ namespace Classifieds.MasterDataAPI.Controllers
             {
                 try
                 {
-                    var Classified = _masterDataService.UpdateMasterData(id, value);
-                    result = Request.CreateResponse<MasterData>(HttpStatusCode.Accepted, Classified);
-                    //result = Request.CreateResponse(HttpStatusCode.NoContent);
+                    var classified = _masterDataService.UpdateMasterData(id, value);
+                    result = Request.CreateResponse<MasterData>(HttpStatusCode.Accepted, classified);
                 }
                 catch (Exception ex)
                 {
-                    //Trace.TraceError(ex.Message, ex);
+
                     result = Request.CreateResponse<string>(HttpStatusCode.InternalServerError, ex.Message);
                 }
             }
@@ -93,6 +104,9 @@ namespace Classifieds.MasterDataAPI.Controllers
             return result;
         }
 
+        #endregion
+
+        #region DeleteCategory
         public HttpResponseMessage Delete(string id)
         {
             HttpResponseMessage result = null;
@@ -104,12 +118,15 @@ namespace Classifieds.MasterDataAPI.Controllers
             }
             catch (Exception ex)
             {
-                //Trace.TraceError(ex.Message, ex);
                 result = Request.CreateResponse<string>(HttpStatusCode.InternalServerError, ex.Message);
             }
 
             return result;
         }
+
+        #endregion
+
+        #region GetBadRequestResponse
 
         private HttpResponseMessage GetBadRequestResponse()
         {
@@ -126,5 +143,7 @@ namespace Classifieds.MasterDataAPI.Controllers
             response = Request.CreateResponse<IEnumerable<string>>(HttpStatusCode.BadRequest, errors);
             return response;
         }
+
+        #endregion
     }
 }

@@ -11,6 +11,7 @@ namespace Classifieds.MastersData.Repository
 {
     public class MasterDataRepository : DBRepository, IMasterDataRepository
     {
+        #region MasterDataRepository
         private string COLLECTION_Classifieds = ConfigurationManager.AppSettings["MasterDataCollection"];
 
         private IDBRepository _dbRepository;
@@ -18,12 +19,14 @@ namespace Classifieds.MastersData.Repository
         {
             _dbRepository = DBRepository;
         }
-
         MongoCollection<MasterData> classifieds
         {
             get { return _dbRepository.GetCollection<MasterData>(COLLECTION_Classifieds); }
         }
 
+        #endregion
+
+        #region GetAllCategory
         public List<MasterData> GetAllCategory()
         {
             try
@@ -40,11 +43,16 @@ namespace Classifieds.MastersData.Repository
                 throw ex;
             }
         }
+
+        #endregion
+
+        #region AddCategory
+
         /// <summary>
-        /// Insert a new MasterData object into the database
+        /// Insert a new Category object into the database
         /// </summary>
-        /// <param name="object">MasterData object</param>
-        /// <returns>return newly added MasterData object</returns>
+        /// <param name="object">Category object</param>
+        /// <returns>return newly added Category object</returns>
         public MasterData Add(MasterData masterData)
         {
             try
@@ -62,25 +70,31 @@ namespace Classifieds.MastersData.Repository
             }
         }
 
+        #endregion
+
+        #region Updatecategory
+
         /// <summary>
-        /// Update existing MasterData object based on id from the database
+        /// Update existing category object based on id from the database
         /// </summary>
-        /// <param name="id">MasterData Id</param>
-        /// <param name="object">MasterData object </param>
-        /// <returns>return updated MasterData object</returns>
-        public MasterData Update(string id, MasterData listObj)
+        /// <param name="object">category object </param>
+        /// <returns>return updated category object</returns>
+        /// 
+
+        public MasterData Update(string id, MasterData dataObj)
         {
             try
             {
                 var query = Query<MasterData>.EQ(p => p._id, id);
-                var update = Update<MasterData>.Set(p => p.ListingCategory, listObj.ListingCategory);
+                var update = Update<MasterData>.Set(p => p.ListingCategory, dataObj.ListingCategory)
+                                               .Set(p => p.SubCategory, dataObj.SubCategory);
                 var result = this.classifieds.Update(query, update);
                 if (result.DocumentsAffected == 0 && result.HasLastErrorMessage)
                 {
-                    //Trace.TraceError(result.LastErrorMessage);
+
                 }
 
-                return listObj;
+                return dataObj;
             }
             catch (Exception ex)
             {
@@ -88,10 +102,13 @@ namespace Classifieds.MastersData.Repository
             }
         }
 
+        #endregion
+
+        #region DeleteCategory
         /// <summary>
-        /// Delete MasterData object based on id from the database
+        /// Delete category object based on id from the database
         /// </summary>
-        /// <param name="id">MasterData Id</param>
+        /// <param name="id">category Id</param>
         /// <returns>return void</returns>
         public void Delete(string id)
         {
@@ -101,7 +118,7 @@ namespace Classifieds.MastersData.Repository
                 var result = this.classifieds.Remove(query);
                 if (result.DocumentsAffected == 0 && result.HasLastErrorMessage)
                 {
-                    //Trace.TraceError(result.LastErrorMessage);
+                    
                 }
             }
             catch (Exception ex)
@@ -109,5 +126,7 @@ namespace Classifieds.MastersData.Repository
                 throw ex;
             }
         }
+
+        #endregion
     }
 }

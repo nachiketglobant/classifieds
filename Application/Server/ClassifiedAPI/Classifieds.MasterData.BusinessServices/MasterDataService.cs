@@ -11,12 +11,18 @@ namespace Classifieds.MastersData.BusinessServices
 {
     public class MasterDataService : IMasterDataService
     {
+        #region MasterDataService
+
         private IMasterDataRepository _masterDataRepository;
 
         public MasterDataService(IMasterDataRepository MasterDataRepository)
         {
             _masterDataRepository = MasterDataRepository;
         }
+
+        #endregion
+
+        #region GetAllCategory
 
         public List<MasterData> GetAllCategory()
         {
@@ -28,9 +34,11 @@ namespace Classifieds.MastersData.BusinessServices
             {
                 throw ex;
             }
-        }      
+        }
 
+        #endregion
 
+        #region CreateMasterData
         public MasterData CreateMasterData(MasterData listObject)
         {
             try
@@ -42,6 +50,10 @@ namespace Classifieds.MastersData.BusinessServices
                 throw ex;
             }
         }
+
+        #endregion
+
+        #region UpdateMasterData
 
         public MasterData UpdateMasterData(string id, MasterData listObject)
         {
@@ -55,6 +67,10 @@ namespace Classifieds.MastersData.BusinessServices
             }
         }
 
+        #endregion
+
+        #region DeleteMasterdata
+
         public void DeleteMasterdata(string id)
         {
             try
@@ -66,5 +82,7 @@ namespace Classifieds.MastersData.BusinessServices
                 throw ex;
             }
         }
+
+        #endregion
     }
 }

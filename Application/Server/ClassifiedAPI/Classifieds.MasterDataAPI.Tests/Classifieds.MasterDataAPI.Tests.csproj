@@ -87,6 +87,8 @@
   </Choose>
   <ItemGroup>
     <Compile Include="MasterdataControllerTest.cs" />
+    <Compile Include="MasterDataRepositoryTest.cs" />
+    <Compile Include="MasterDataServiceTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

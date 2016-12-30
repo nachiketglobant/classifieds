@@ -13,6 +13,7 @@ namespace Classifieds.MastersData.Repository
 {
     public class DBRepository : IDBRepository
     {
+        #region Connection String
 
         private string CONNECTION_STRING = ConfigurationManager.ConnectionStrings["MasterDataConnectionString"].ConnectionString;
         private string DATABASE = ConfigurationManager.AppSettings["MasterDataDBName"];
@@ -37,5 +38,7 @@ namespace Classifieds.MastersData.Repository
         {
             return db.GetCollection<MasterData>(name);
         }
+
+        #endregion
     }
 }
