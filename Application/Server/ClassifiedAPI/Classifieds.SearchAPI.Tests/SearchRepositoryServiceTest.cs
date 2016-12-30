@@ -1,11 +1,8 @@
-﻿using Classifieds.Search.BusinessEntities;
+﻿using Classifieds.Listings.BusinessEntities;
 using Classifieds.Search.Repository;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Classifieds.SearchAPI.Tests
 {
@@ -14,7 +11,6 @@ namespace Classifieds.SearchAPI.Tests
     {
         #region Private Variables        
         private ISearchRepository _searchRepo;
-        //private IDBRepository _dbRepository;
         #endregion
 
         #region Initialization
@@ -28,35 +24,35 @@ namespace Classifieds.SearchAPI.Tests
         #region Private Methods
         private void SetUpClassifields()
         {
-            var classified = new Classified()
+            var classified = new Listing()
             {
-                ListingType = "test",
-                ListingCategory = "test",
-                SubCategory = "test",
-                Title = "test",
-                Address = "AAA",
+                ListingType = "ListingType",
+                ListingCategory = "ListingCategory",
+                SubCategory = "SubCategory",
+                Title = "Title",
+                Address = "Address",
                 ContactNo = "1111",
                 ContactName = "AAA AAA",
                 Configuration = "NA",
                 Details = "for rupees 20,000,000,000",
-                Brand = "test",
+                Brand = "Brand",
                 Price = 123,
                 YearOfPurchase = 123,
-                ExpiryDate = "test",
-                Status = "test",
-                Submittedby = "test",
-                SubmittedDate = "test",
-                IdealFor = "test",
-                Furnished = "test",
-                FuelType = "test",
+                ExpiryDate = "ExpiryDate",
+                Status = "Status",
+                Submittedby = "Submittedby",
+                SubmittedDate = "20-DEC-2016",
+                IdealFor = "IdealFor",
+                Furnished = "Furnished",
+                FuelType = "FuelType",
                 KmDriven = 123,
                 YearofMake = 123,
-                Dimensions = "test",
-                TypeofUse = "test",
-                Photos = "test"
+                Dimensions = "Dimensions",
+                TypeofUse = "TypeofUse",
+                Photos = "Photos"
             };
 
-            var classifiedList = new List<Classified>();
+            var classifiedList = new List<Listing>();
             classifiedList.Add(classified);
             //_moqAppManager.Setup(x => x.FullTextSearch(It.IsAny<string>())).Returns(classifiedList);
 
@@ -86,7 +82,7 @@ namespace Classifieds.SearchAPI.Tests
             //Assert
             Assert.IsNotNull(result);
             Assert.AreEqual(result.Count, 0);
-            Assert.IsInstanceOfType(result, typeof(IList<Classified>));
+            Assert.IsInstanceOfType(result, typeof(IList<Listing>));
         }
 
         [TestMethod]
