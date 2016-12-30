@@ -18,3 +18,8 @@
 /Application/Server/ClassifiedAPI/Classifieds.Listings.Repository
 /Application/Server/ClassifiedAPI/Classifieds.Listings.BusinessServices.Test
 /Application/Server/ClassifiedAPI/Classifieds.Listings.BusinessServices
+/Application/Server/ClassifiedAPI/Classifieds.Common/Classifieds.Common.csproj.user
+/Application/Server/ClassifiedAPI/Classifieds.Listings.BusinessEntities/Classifieds.Listings.BusinessEntities.csproj.user
+/Application/Server/ClassifiedAPI/Classifieds.Search.BusinessEntities/Classifieds.Search.BusinessEntities.csproj.user
+/Application/Server/ClassifiedAPI/Classifieds.Search.BusinessServices/Classifieds.Search.BusinessServices.csproj.user
+/Application/Server/ClassifiedAPI/Classifieds.Search.Repository/Classifieds.Search.Repository.csproj.user

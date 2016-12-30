@@ -172,6 +172,10 @@
       <Project>{46cc0d61-079e-4375-b3a5-e1ef9cde7736}</Project>
       <Name>Classifieds.Listings.Repository</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Classifieds.Nlog.MongoDB\Classifieds.Nlog.MongoDB.csproj">
+      <Project>{22632564-3554-4398-aa25-480f89166f59}</Project>
+      <Name>Classifieds.Nlog.MongoDB</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
