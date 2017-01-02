@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using MongoDB.Driver;
 using Moq;
-using NLog.Common;
 using NUnit.Framework;
 using FluentAssertions;
-using Classifieds.NLog.MongoDB;
 using NLog;
 
 namespace Classifieds.NLog.MongoDB.Tests

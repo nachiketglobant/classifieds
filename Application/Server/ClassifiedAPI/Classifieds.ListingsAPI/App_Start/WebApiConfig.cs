@@ -20,6 +20,7 @@ namespace Classifieds.ListingsAPI
             container.RegisterType<IListingRepository, ListingRepository>(new HierarchicalLifetimeManager());
             container.RegisterType<IDBRepository, DBRepository>(new HierarchicalLifetimeManager());
             container.RegisterType<ILogger, Logger>(new HierarchicalLifetimeManager());
+            container.RegisterType<Classifieds.NLog.MongoDB.ILogger, Classifieds.NLog.MongoDB.Logger>(new HierarchicalLifetimeManager());
             config.DependencyResolver = new UnityResolver(container);
             // Web API routes
             config.MapHttpAttributeRoutes();
