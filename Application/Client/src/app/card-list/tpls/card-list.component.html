@@ -1,18 +1,38 @@
 <div class="container">
     <h2 class="category">All categories</h2>
-    <div class="row">
-        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
-            <div class="plain-card-container">
-                <div class="img-block">
-                    <img src="../../../../assets/img/card/photo1.png" />
+    <div class="row card-wrapper">
+        <div *ngFor="let category of cardListings">
+
+            <div *ngIf="category.existingCategory" [ngClass]="{'col-lg-4 col-md-4 col-sm-6 col-xs-6': category.smallCategory,
+                'col-lg-8 col-md-8 col-sm-12 col-xs-12': category.largeCategory}">
+                <div class="plain-card-container" [ngClass]="{'plain-card-container':!category.makeWish && !category.recommend,
+        'wishlist-container':category.makeWish,
+        'recommend-container':category.recommend}">
+                    <div class="recommendLabel" *ngIf="category.recommend">
+                        <span class="icon-flag"></span>
+                        <span class="recommend">Recommended</span>
+                    </div>
+                    <div class="img-block">
+                        <img src="../../../../assets/img/card/{{category.img}}" />
+                    </div>
+                    <div class="contentdetail">
+                        <h3>{{category.title}}</h3>
+                        <p>{{category.info}}</p>
+                        <ul>
+                            <li><span class="icon-clock"></span>{{category.submittedDate}}</li>
+                            <li><span class="icon-like-icon"></span>RS {{category.price}}</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="contentdetail">
-                    <h3> {{this.initialCards|json}}</h3>
-                    <p>Apple Inc has decided to launch the much awaited Apple Watch in the upcoming </p>
-                    <ul>
-                        <li><span class="icon-clock"></span> 1 june 2015</li>
-                        <li><span class="icon-like-icon"></span>RS 6000</li>
-                    </ul>
+            </div>
+            <div *ngIf="!category.existingCategory" class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+                <div class="create-container">
+                    <div class="contentdetail">
+                        <h2>CREATE YOUR OWN LISTING HERE</h2>
+                        <button>
+                            <span class="icon-flag"></span> Create
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -124,3 +144,4 @@
         <!--</div>-->
     <!--</div>-->
 <!--</div>-->
+

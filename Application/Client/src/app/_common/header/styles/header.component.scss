@@ -1,4 +1,4 @@
-@import "../../../common.scss";
+@import "../../styles/sass/style";
 
 nav{
   &.navbar{
@@ -43,6 +43,8 @@ nav{
             .textwishlist{
               text-transform: uppercase;
               color:$white-color;
+              font-family: 'Open Sans';
+              font-size: 0.857em;
             }
             .wishlist{
               padding:5px 12px 0 0;
@@ -50,7 +52,7 @@ nav{
             }
           }
           .menu-btn{
-            padding:5px 0 0 30px;
+            margin:5px 0 0 30px;
             background: none;
             border: none;
           }

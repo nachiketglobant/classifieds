@@ -15,6 +15,8 @@ import { HeaderComponent } from './_common/header/components/header.component';
 import { CardListComponent } from './card-list/components/card-list.component';
 import { BannerComponent } from './banner/components/banner.component';
 import {CService} from "./_common/services/http.service";
+import { SearchComponent } from './_common/search/components/search.component';
+import { FilterComponent } from './filter/components/filter.component';
 
 const APP_PROVIDERS = [
   ...APP_RESOLVER_PROVIDERS,
@@ -37,7 +39,9 @@ type StoreType = {
     HomeComponent,
     HeaderComponent,
     CardListComponent,
-    BannerComponent
+    BannerComponent,
+    SearchComponent,
+    FilterComponent
   ],
   imports: [ // import Angular's modules
     BrowserModule,

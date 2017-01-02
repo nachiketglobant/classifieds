@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container banner-container">
   <div class="row banner-row">
     <h1>
       Buy, sell or find anything,<br />
@@ -8,95 +8,17 @@
       <div class="container-fluid">
         <div class="bannerwrapper">
           <ul class="nav navbar-nav">
-            <li class="active">
-              <div class="img-icon">
-                <img src="../../../../assets/img/mobile-icon/4.png" />
-              </div>
-              <div class="categoryTitle">Electronics</div>
-              <span class="spriteimage electronicIcon"></span>
-              <ul class="hoverlistWrapper">
-                <li>
-                  <a href="">Mobiles</a>
-                </li>
-                <li>
-                  <a href="">Laptops and Desktops</a>
-                </li>
-                <li>
-                  <a href="">Kitchen Appliences</a>
-                </li>
-                <li>
-                  <a href="">Home Appliences</a>
-                </li>
-                <li>
-                  <a href="">Accessories</a>
-                </li>
-                <li>
-                  <a href="">Others</a>
-                </li>
-              </ul>
-              <button>EXPLORE</button>
-            </li>
-            <li>
-              <div class="img-icon">
-                <img src="../../../../assets/img/mobile-icon/1.png" />
-              </div>
-              <div class="categoryTitle">Housing</div>
-              <span class="spriteimage housingIcon"></span>
-              <ul class="hoverlistWrapper">
-                <li><a href="">Studio Apartments</a></li>
-                <li><a href="">Double Sharing</a></li>
-                <li><a href="">Single room</a></li>
-                <li><a href="">Double BEdroom</a></li>
-                <li><a href="">Fully Furnished</a></li>
-                <li><a href="">Semi Furnished</a></li>
-                <li><a href="">Luxury Aprtments</a></li>
-              </ul>
-              <button>EXPLORE</button>
-            </li>
-            <li>
-              <div class="img-icon">
-                <img src="../../../../assets/img/mobile-icon/2.png" />
-              </div>
-              <div class="categoryTitle">Automotive</div>
-              <span class="spriteimage automotiveIcon"></span>
-              <ul class="hoverlistWrapper">
-                <li><a href="">Cars</a></li>
-                <li><a href="">Motarcycles</a></li>
-                <li><a href="">Scooters</a></li>
-                <li><a href="">Bycycles</a></li>
-                <li><a href="">Accessories</a></li>
-              </ul>
-              <button>EXPLORE</button>
-            </li>
-            <li>
-              <div class="img-icon">
-                <img src="../../../../assets/img/mobile-icon/3.png" />
-              </div>
-              <div class="categoryTitle">Furniture</div>
-              <span class="spriteimage furnitureIcon"></span>
-              <ul class="hoverlistWrapper">
-                <li><a href="">Beds and Sofas</a></li>
-                <li><a href="">Tables and Chairs</a></li>
-                <li><a href="">Wadrobes and Storage</a></li>
-                <li><a href="">Home decor and garden</a></li>
-              </ul>
-              <button>EXPLORE</button>
-            </li>
-            <li>
-              <div class="img-icon">
-                <img src="../../../../assets/img/mobile-icon/5.png" />
-              </div>
-              <div class="categoryTitle">Assorted</div>
-              <span class="spriteimage assortedIcon"></span>
-              <ul class="hoverlistWrapper">
-                <li><a href="">Books and stationary</a></li>
-                <li><a href="">Sports equipment</a></li>
-                <li><a href="">Musical instrument</a></li>
-                <li><a href="">Apparel and accessories</a></li>
-                <li><a href="">Games and Entertainment</a></li>
-              </ul>
-              <button>EXPLORE</button>
-            </li>
+              <li *ngFor="let item of listingsData">
+                  <div class="img-icon">
+                      <img src="../../../../assets/img/mobile-icon/{{item.listInfo.img}}" />
+                  </div>
+                  <div class="categoryTitle">{{item.listName}}</div>
+                  <span class="spriteimage {{item.listInfo.largeImgClassName}}"></span>
+                  <ul class="hoverlistWrapper">
+                      <li *ngFor="let d of item.listInfo.items"><a href="">{{d.name}}</a></li>
+                  </ul>
+                  <button>EXPLORE</button>
+              </li>
           </ul>
         </div>
       </div>

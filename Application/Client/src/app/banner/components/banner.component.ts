@@ -14,12 +14,13 @@ let tpls = require('../tpls/banner.component.html').toString();
 
 export class BannerComponent {
   private settings : any ;
-  private baseUrl : any ;
+  private listingsData : any ;
   localState = { value: '' };
   constructor(public appState: AppState,private _settingsService: SettingsService) {}
 
   ngOnInit() {
-    this.baseUrl=this._settingsService.getBaseUrl();
+    this.listingsData=this._settingsService.getBannerListingsData();
+    console.log('dsf = ',this.listingsData);
   }
 
   submitState(value: string) {

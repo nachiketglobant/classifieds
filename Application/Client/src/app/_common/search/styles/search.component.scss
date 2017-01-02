@@ -1,0 +1,28 @@
+@import "../../styles/sass/style";
+
+.navbar{
+  .search-button{
+    font-family: 'Open Sans';
+    font-weight: 600;
+    margin:40px 0 40px 0;
+    float:left;
+    color: $white-color;
+    input{
+      border:none;
+        border-radius: 15px;
+        position: relative;
+        background: $green-color;
+        @include placeholder-color($white-color);
+        text-transform: uppercase;
+        padding: 5px 5px 5px 10px;
+    }
+    button{
+      background: transparent;
+      border: transparent;
+      border-radius: 15px;
+      position: absolute;
+      top: 60px;
+      left: 170px;
+    }
+  }
+}

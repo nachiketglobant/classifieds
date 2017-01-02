@@ -5,7 +5,10 @@ import {CService} from  './http.service';
 import 'rxjs/Rx';
 
 var settingsJson = require("app/settings.json");
-var cardListJson =  require("app/card-list/json/card-list.json")
+
+var bannerListingsJson = require("app/banner/json/banner.json");
+var cardListingsJson = require("app/card-list/json/card-list.json");
+
 
 @Injectable()
 export class SettingsService{
@@ -22,7 +25,6 @@ export class SettingsService{
   getBaseUrl(){
     return settingsJson.services.main;
   }
-
   getInitialCards (){
       console.log('in side get',this.cardUrl);
       return this._cservice.observableGetHttp(this.cardUrl,null,false,)
@@ -34,6 +36,14 @@ export class SettingsService{
           console.log("Finally");
         })
     }
+getBannerListingsData(){
+      return bannerListingsJson.details;
+  }
+
+  getCardListingsData(){
+      return cardListingsJson.categories;
+  }
+
 }
 
 
