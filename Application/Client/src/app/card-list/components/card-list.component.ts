@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,Input,OnInit } from '@angular/core';
 import { AppState } from '../../app.service';
 
 let styles = require('../styles/card-list.component.scss').toString();
@@ -10,5 +10,15 @@ let tpls = require('../tpls/card-list.component.html').toString();
     template : tpls
 })
 export class CardListComponent{
+
+  @Input() initialCardData;
+
+  private initialCards:any;
+
+  constructor() {}
+
+  ngOnInit(){
+    this.initialCards = this.initialCardData;
+  }
 
 }

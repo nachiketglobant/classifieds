@@ -14,6 +14,7 @@ import { HomeComponent } from './home/components/home.component';
 import { HeaderComponent } from './_common/header/components/header.component';
 import { CardListComponent } from './card-list/components/card-list.component';
 import { BannerComponent } from './banner/components/banner.component';
+import {CService} from "./_common/services/http.service";
 
 const APP_PROVIDERS = [
   ...APP_RESOLVER_PROVIDERS,
@@ -46,7 +47,8 @@ type StoreType = {
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,
-    APP_PROVIDERS
+    APP_PROVIDERS,
+    CService
   ]
 })
 export class AppModule {

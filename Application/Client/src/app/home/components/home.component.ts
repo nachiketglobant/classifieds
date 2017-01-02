@@ -15,17 +15,18 @@ let tpls = require('../tpls/home.component.html').toString();
 export class HomeComponent {
   private settings : any ;
   private baseUrl : any ;
-  localState = { value: '' };
-  constructor(public appState: AppState,private _settingsService: SettingsService) {}
+  public intialCardData: any;
+  constructor(public appState: AppState,private _settingsService: SettingsService) {
+  }
 
   ngOnInit() {
     this.baseUrl=this._settingsService.getBaseUrl();
-    console.log('in the home component');
+    this.intialCardData =this._settingsService.getInitialCards();
+    console.log("this.intialCardData",this.intialCardData);
   }
 
   submitState(value: string) {
     console.log('submitState', value);
     this.appState.set('value', value);
-    this.localState.value = '';
   }
 }
