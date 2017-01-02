@@ -1,9 +1,6 @@
 @import "../../styles/sass/style";
 
 .navbar{
-  background-color: $primary-background-color;
-  font: 0.857em $arvo-bold;
-  text-transform: uppercase;
   .search-button{
     font-family: 'Open Sans';
     font-weight: 600;
@@ -17,15 +14,15 @@
         background: $green-color;
         @include placeholder-color($white-color);
         text-transform: uppercase;
-        padding-left: 5px;
+        padding: 5px 5px 5px 10px;
     }
     button{
       background: transparent;
-        border: transparent;
-        border-radius: 15px;
-        position: absolute;
-        top: 41px;
-        left: 130px;
+      border: transparent;
+      border-radius: 15px;
+      position: absolute;
+      top: 60px;
+      left: 170px;
     }
   }
 }

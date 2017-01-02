@@ -1,9 +1,13 @@
 @import "../../_common/styles/sass/style";
 
-.navbar{
+.searchFilterContainer{
   background-color: $primary-background-color;
-  font: 0.857em $arvo-bold;
   text-transform: uppercase;
+  padding: 15px 20px;
+  /*padding-top:15px;
+  padding-bottom:15px;*/
+  border-top: 2px solid $filter-shadow-color;
+  box-shadow: 0 0 15px 0 $filter-shadow-color;
 }
 @media (min-width: 320px) and (max-width: 460px){
   .navbar{
